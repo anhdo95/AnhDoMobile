@@ -1,0 +1,199 @@
+@import "../../../assets/sass/helpers/includes";
+$logo: '../../../assets/images/logo.png';
+$anhdomobile-logo: '../../../assets/images/anhdomobile-logo.png';
+
+#main-header {
+    top: 0;
+    z-index: 100;
+    .wrapper {
+        @extend %standard-container;
+        >.logo {
+            padding: 0.75em 0;
+            img {
+                width: 100%;
+            }
+        }
+        .search-form {
+            margin: 0.8em 0.9em 0;
+            input,
+            button {
+                @extend %border-outline-none;
+                &:focus {
+                    box-shadow: initial;
+                }
+            }
+            .search-results {
+                display: block;
+                margin-top: 6%;
+                min-width: 120%;
+                z-index: 101;
+                @extend %standard-box-shadow;
+                &:after {
+                    position: absolute;
+                    content: '';
+                    border: 14px solid;
+                    top: -28px;
+                    left: 20%;
+                    border-color: transparent transparent $white transparent;
+                }
+                a {
+                    display: block;
+                    color: $black;
+                    font-size: 0.9em;
+                    &:not(:last-child) {
+                        border-bottom: 1px solid $gray;
+                    }
+                    .picture {
+                        width: 25%;
+                    }
+                    .desc {
+                        width: 75%;
+                        .name {
+                            font-size: 1em;
+                        }
+                        .price {
+                            strong {
+                                color: $red;
+                            }
+                            .line-through {
+                                text-decoration: line-through;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #sidenav {
+            a {
+                display: inline-block;
+                color: $gray;
+                padding: 0.5em 1em;
+                @extend %transition-all;
+                &:hover {
+                    color: $white;
+                    @extend %text-decoraction-none;
+                }
+                &:not(:first-child) {
+                    border-left: 2px ridge #626262;
+                }
+                i {
+                    @extend %display-block;
+                    font-size: 1.2em;
+                    text-align: center;
+                    margin-bottom: 5px;
+                }
+            }
+            .btn-open {
+                @extend %display-none;
+                line-height: 200%;
+                font-size: 1.7em;
+                color: $white;
+            }
+        }
+        #sidenav-mobile {
+            @include position-display(fixed);
+            width: 0;
+            z-index: 10;
+            padding-top: 5%;
+            overflow-x: hidden;
+            @extend %transition-all;
+            &.open {
+                @extend %transition-all;
+                width: 100%;
+            }
+            a {
+                @extend %display-block;
+                margin-left: 10%;
+                color: $white;
+                padding: 0.7em 1em;
+                transition: 0.3s;
+                &:hover {
+                    @extend %text-decoraction-none;
+                }
+                i {
+                    margin-right: 20px;
+                }
+            }
+            .btn-close {
+                top: 0;
+                right: 5%;
+                font-size: 1.8em;
+                padding: 0;
+                &:hover {
+                    opacity: .9;
+                }
+            }
+            .logo-mobile {
+                @include position-display();
+                margin-left: 5%;
+                margin-top: 1%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #main-header {
+        .wrapper {
+            width: auto;
+            font-size: $font-size-for-screen-1024px;
+            padding: 0 0.5em;
+            >.logo {
+                padding: 0.5em 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 823px) {
+    #main-header {
+        .wrapper {
+            >.logo {
+                width: 40px;
+                img {
+                    content: url($logo);
+                }
+            }
+            #sidenav {
+                a {
+                    padding: 0.5em 0.9em;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #main-header {
+        .wrapper {
+            >.logo {
+                width: initial;
+                img {
+                    content: url($anhdomobile-logo);
+                }
+            }
+            #sidenav {
+                .btn-open {
+                    cursor: pointer;
+                    display: block;
+                }
+                a {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 414px) {
+    #main-header {
+        .wrapper {
+            >.logo {
+                width: 35px;
+                img {
+                    content: url($logo);
+                }
+            }
+        }
+    }
+}
