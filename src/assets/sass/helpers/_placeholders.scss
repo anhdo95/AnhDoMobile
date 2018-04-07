@@ -1,0 +1,73 @@
+%reset-padding-margin {
+    padding: 0;
+    margin: 0;
+}
+
+%float-right {
+    float: right;
+}
+
+%float-left {
+    float: left;
+}
+
+%relative-pos {
+    position: relative;
+}
+
+%absolute-pos {
+    position: absolute;
+}
+
+%text-decoraction-none {
+    text-decoration: none;
+}
+
+%border-outline-none {
+    outline: none;
+    border: none;
+}
+
+%transition-all {
+    transition: 0.5s;
+}
+
+%display-none {
+    display: none;
+}
+
+%display-block {
+    display: block;
+}
+
+%margin-center {
+    margin: 0 auto;
+}
+
+%width-90 {
+    width: 90%;
+}
+
+%standard-container {
+    @extend %width-90;
+    @extend %margin-center;
+}
+
+%padding-product-box {
+    padding: 0 10px;
+}
+
+%text-shadow-title {
+    text-shadow: 2px 2px 5px #a1e824;
+}
+%standard-box-shadow {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+%dimension-comment-photo {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #fcde04;
+    font-weight: bold;
+}
