@@ -1,0 +1,130 @@
+<div id="payment">
+  <div class="row">
+    <div class="info col-lg-8 col-md-9 col-sm-10 col-12 m-auto bg-white py-2">
+      <div class="cust-info mb-3">
+        <h3 class="text-info title">1. Thông tin khách hàng</h3>
+        <form>
+          <div class="form-group row">
+            <div class="col-sm-9 offset-sm-3">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="male" name="gender" class="custom-control-input" value="1">
+                <label class="custom-control-label" for="male">Anh</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="female" name="gender" class="custom-control-input" value="0">
+                <label class="custom-control-label" for="female">Chị</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="fullname" class="col-sm-3 col-form-label">
+              <b>Họ và tên:</b>
+              <span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-9">
+              <input type="text" class="rounded-0 form-control" placeholder="Nhập họ và tên">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="phone" class="col-sm-3 col-form-label">
+              <b>Số điện thoại:</b>
+              <span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-9">
+              <input type="text" class="rounded-0 form-control" placeholder="Nhập số điện thoại">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="ship-method mb-3">
+        <h3 class="text-info title">2. Phương thức nhận hàng</h3>
+        <div class="type border">
+          <a href="javascript:void()" class="text-center w-50 border-right border-bottom active">
+            <i class="fa fa-truck" aria-hidden="true"></i>
+
+            <p>Giao hàng tận nơi
+              <br>
+              <small>(Miễn phí)</small>
+            </p>
+          </a>
+          <a href="javascript:void()" class="text-center w-50 border-bottom">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <p>Nhận hàng tại cửa hàng
+              <br>
+              <small>(Đơn giản)</small>
+            </p>
+          </a>
+          <div class="clearfix"></div>
+          <div class="ship-des px-3 pt-5 pb-4">
+            <form>
+              <div class="form-group row">
+                <label for="fullname" class="col-lg-3 col-sm-4 col-form-label">
+                  Tỉnh / Thành phố:
+                  <span class="text-danger">*</span>
+                </label>
+                <div class="col-lg-9 col-sm-8">
+                  <select class="custom-select rounded-0">
+                    <option selected>Chọn Tỉnh / Thành phố</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="phone" class="col-lg-3 col-sm-4  col-form-label">
+                  Quận / Huyện:
+                  <span class="text-danger">*</span>
+                </label>
+                <div class="col-lg-9 col-sm-8">
+                  <select class="custom-select rounded-0" disabled>
+                    <option selected>Chọn Quận / Huyện</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="phone" class="col-lg-3 col-sm-4 col-form-label">
+                  Địa chỉ:
+                  <span class="text-danger">*</span>
+                </label>
+                <div class="col-lg-9 col-md-8 col-sm-8">
+                  <input type="text" class="rounded-0 form-control" placeholder="Nhập số nhà, tên đường, phường / xã">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="pay-method mb-3">
+        <h3 class="text-info title">3. Hình thức thanh toán</h3>
+        <div class="type border">
+          <a href="javascript:void()" class="text-center w-50 border-right border-bottom active">
+            <i class="fa fa-money" aria-hidden="true"></i>
+            <p>Trả tiền mặt
+              <br>
+              <small>(Khi nhận hàng)</small>
+            </p>
+          </a>
+          <a href="javascript:void()" class="text-center w-50 border-bottom">
+            <i class="fa fa-credit-card" aria-hidden="true"></i>
+            <p>Thẻ ATM
+              <br>
+              <small>(Internet banking)</small>
+            </p>
+          </a>
+          <div class="clearfix"></div>
+          <div class="ship-des px-3 pt-5 pb-4 clearfix">
+            <p class="text-center">Quý khách sẽ thanh toán bằng tiền mặt khi nhận hàng.
+              <br>Vui lòng bấm nút
+              <b>"Đặt Hàng"</b> để hoàn tất</p>
+            <hr>
+            <button class="btn btn-success btn-lg rounded-0 float-right">ĐẶT HÀNG</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
