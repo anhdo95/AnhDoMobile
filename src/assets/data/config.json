@@ -1,0 +1,9 @@
+{
+  "apiBase": "",
+  "status": {
+    "success": "ok",
+    "error": "error"
+  },
+  "messages": {
+  }
+}
