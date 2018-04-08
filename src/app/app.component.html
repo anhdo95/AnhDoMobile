@@ -1,1 +1,5 @@
 <app-header></app-header>
+<app-banner *ngIf="enableBanner"></app-banner>
+<section id="main-wrapper">
+  <router-outlet></router-outlet>
+</section>

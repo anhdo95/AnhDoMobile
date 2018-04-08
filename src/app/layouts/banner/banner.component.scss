@@ -1,0 +1,187 @@
+@import "../../../assets/sass/helpers/includes";
+#banner {
+    @extend %standard-container;
+    margin-top: 75px;
+    #main-carousel {
+        margin: 0.7em 0;
+        overflow: hidden;
+        .inner {
+            @extend %relative-pos;
+            overflow: hidden;
+            height: 300px;
+            &:hover>.control {
+                top: calc(50% - 20px);
+            }
+            .slides {
+                width: 8000px;
+                height: 100%;
+                .item {
+                    float: left;
+                    height: 100%;
+                    cursor: pointer;
+                }
+            }
+            .control {
+                @extend %absolute-pos;
+                top: -100%;
+                padding: 10px;
+                background-color: rgba(0, 0, 0, 0.7);
+                color: $white;
+                border-radius: 4px;
+                @extend %text-decoraction-none;
+                @extend %transition-all;
+                &.prev {
+                    left: 3%;
+                }
+                &.next {
+                    right: 3%;
+                }
+                &:hover {
+                    opacity: 0.8;
+                    @extend %transition-all;
+                }
+            }
+        }
+        .indicators {
+            @extend %reset-padding-margin;
+            width: 100%;
+            border-top: 1px solid $gray;
+            float: left;
+            background-color: $white;
+            list-style-type: none;
+            li {
+                float: left;
+                width: 20%;
+                text-align: left;
+                &:not(:last-child) {
+                    border-right: 2px ridge #e8e8e8;
+                }
+                a {
+                    display: block;
+                    color: $black;
+                    @extend %text-decoraction-none;
+                    text-align: center;
+                    font-size: 0.8em;
+                    padding: 0.4em;
+                    &.active {
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+        #home-news {
+            padding: 0;
+            .news {
+                .header {
+                    padding: 5px;
+                }
+                .card-body {
+                    padding: 0 5px;
+                }
+                .item {
+                    @extend %text-decoraction-none;
+                    color: $black;
+                    margin: 0;
+                    padding: 0.66em 0;
+                    font-size: 0.9em;
+                    &:not(:last-child) {
+                        border-bottom: 1px solid $gray;
+                    }
+                    .img {
+                        @extend %reset-padding-margin;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #banner {
+        width: 100%;
+        margin-top: 60px;
+        #main-carousel {
+            .inner-col {
+                padding-right: 0.5em;
+                .inner {
+                    height: 255px;
+                }
+                .indicators {
+                    font-size: $font-size-for-screen-1024px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 823px) {
+    #banner {
+        #main-carousel {
+            .inner-col {
+                .inner {
+                    height: 225px;
+                }
+                .indicators {
+                    li {
+                        height: 50px;
+                    }
+                }
+            }
+            #home-news {
+                font-size: 14px;
+                .news {
+                    .item {
+                        padding: 0.5em 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #banner {
+        #main-carousel {
+            .inner-col {
+                .inner {
+                    height: 250px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 568px) {
+    #banner {
+        #main-carousel {
+            #home-news {
+                padding: 0 1em;
+                .news {
+                    .card-body {
+                        .item {
+                            .img {
+                                flex: 0 0 15%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 414px) {
+    #banner {
+        margin-top: 50px;
+        #main-carousel {
+            .inner-col {
+                .inner {
+                    height: 160px;
+                }
+            }
+        }
+    }
+}

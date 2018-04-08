@@ -1,0 +1,93 @@
+<section id="banner">
+  <aside id="main-carousel">
+    <div class="row">
+      <div class="col-sm-8 inner-col">
+        <div class="inner">
+          <div class="slides">
+            <div class="item active">
+              <img class="d-block w-100 h-100" src="../../../assets/images/dat-truoc-vivo-v9.png" alt="">
+            </div>
+            <div class="item">
+              <img class="d-block w-100 h-100" src="../../../assets/images/iphone-x-giam-ngay-2-trieu.png" alt="">
+            </div>
+            <div class="item">
+              <img class="d-block w-100 h-100" src="../../../assets/images/galaxy-j7+-gia-hap-dan.png" alt="">
+            </div>
+            <div class="item">
+              <img class="d-block w-100 h-100" src="../../../assets/images/oppo-tra-gop-0-phan-tram.png" alt="">
+            </div>
+            <div class="item">
+              <img class="d-block w-100 h-100" src="../../../assets/images/iphone-6-chi-799900-dong.png" alt="">
+            </div>
+          </div>
+          <a href="javascript:void()" class="control prev" (click)="controlClick(-1)">&#10094;</a>
+          <a href="javascript:void()" class="control next" (click)="controlClick(1)">&#10095;</a>
+        </div>
+        <div class="clearfix"></div>
+        <ul class="indicators">
+          <li (click)="indicatorClick(0)">
+            <a href="javascript:void()" [class.active]="activeIndex === 0">Đặt trước Vivo V9
+              <br/>Nhận bộ quà 3 triệu</a>
+          </li>
+          <li (click)="indicatorClick(1)">
+            <a href="javascript:void()" [class.active]="activeIndex === 1">Mua iPhone X
+              <br/>Giảm ngay 2 triệu</a>
+          </li>
+          <li (click)="indicatorClick(2)">
+            <a href="javascript:void()" [class.active]="activeIndex === 2">Galaxy J7+
+              <br/>Giá hấp dẫn</a>
+          </li>
+          <li (click)="indicatorClick(3)">
+            <a href="javascript:void()" [class.active]="activeIndex === 3">Oppo trả góp 0%
+              <br/>Tặng voucher 500.000đ</a>
+          </li>
+          <li (click)="indicatorClick(4)">
+            <a href="javascript:void()" [class.active]="activeIndex === 4">iPhone 6
+              <br/>Chỉ với 799.900đ</a>
+          </li>
+        </ul>
+      </div>
+      <div id="home-news" class="col-sm-4">
+        <div class="news card rounded-0">
+          <div class="header bg-success rounded-0">
+            <strong class="text-light">Tin công nghệ</strong>
+          </div>
+          <div class="card-body">
+            <a href="javascript:void()" class="item row">
+              <div class="col-3 img">
+                <img src="../../../assets/images/news/dap-hop-nokia-huawei-nova-3e.png" alt="">
+              </div>
+              <div class="col-9">
+                [HOT] Đập hộp Huawei Nova 3e Klein Blue - Bản thương
+              </div>
+            </a>
+            <a href="javascript:void()" class="item row">
+              <div class="col-3 img">
+                <img src="../../../assets/images/news/apple-phat-hanh-iso-11.3-cho-iphone.png" alt="">
+              </div>
+              <div class="col-9">
+                Apple phát hành iOS 11.3 cho iPhone, iPad với nhiều tính năng
+              </div>
+            </a>
+            <a href="javascript:void()" class="item row">
+              <div class="col-3 img">
+                <img src="../../../assets/images/news/oppo-f7-ra-mat-tai-vn-vao-12-4.png" alt="">
+              </div>
+              <div class="col-9">
+                OPPO F7 sẽ ra mắt tại VN vào 12/4, đặt trước nhận quà ngon
+              </div>
+            </a>
+            <a href="javascript:void()" class="item row">
+              <div class="col-3 img">
+                <img src="../../../assets/images/news/galaxy-J7-plus-camera-kep-man-hinh-super-amoled.png" alt="">
+              </div>
+              <div class="col-9">
+                Galaxy J7+ camera kép, màn hình Super AMOLED bỗng dưng
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+</section>
