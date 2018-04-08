@@ -1,0 +1,193 @@
+@import "../../../assets/sass/helpers/includes";
+#details {
+    @extend %standard-container;
+    margin-top: 65px;
+    .wrap {
+        .phone-name {
+            font-size: 1.5em;
+            padding: 0.5em 0.5em 0;
+            letter-spacing: 1.5px;
+            color: $black;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .pictures {
+            float: left;
+            width: 30%;
+            .photo {
+                width: 100%;
+            }
+            .subs {
+                a {
+                    float: left;
+                    width: 25%;
+                    padding: 0.3em;
+                }
+            }
+        }
+        .description {
+            float: left;
+            width: 38%;
+            .price {
+                font-size: 1.4em;
+                strong {
+                    color: $red;
+                }
+                .line-through {
+                    text-decoration: line-through;
+                }
+            }
+            .btn-action {
+                .buy-now {
+                    a {
+                        background-color: #eb1f27;
+                    }
+                }
+                .installment {
+                    a {
+                        background-color: #385BDE;
+                    }
+                }
+            }
+        }
+        .specification {
+            float: left;
+            width: 32%;
+            .title {
+                font-size: 1.4em;
+            }
+            .table {
+                font-size: 0.9em;
+            }
+        }
+        .content {
+            float: left;
+            width: 68%;
+        }
+        .related-product {
+            float: left;
+            width: 32%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            .title {
+                font-size: 1.4em;
+            }
+            .rel-list {
+                overflow-x: auto;
+                overflow-y: hidden;
+                white-space: nowrap;
+                .item {
+                    color: #414141;
+                    padding: 0.5em 0;
+                    @extend %text-decoraction-none;
+                    &:not(:last-child) {
+                        border-bottom: 1px solid $gray;
+                    }
+                    .picture {
+                        width: 30%;
+                    }
+                    .media-body {
+                        width: 70%;
+                        h5 {
+                            font-size: 1.1em;
+                        }
+                        .price {
+                            strong {
+                                color: $red;
+                            }
+                            .line-through {
+                                text-decoration: line-through;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .comments {
+            float: left;
+            width: 68%;
+            .com-list {
+                .media {
+                    .first-char {
+                        @extend %dimension-comment-photo;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #details {
+        width: 100%;
+        margin-top: 55px;
+    }
+}
+
+@media screen and (max-width: 823px) {
+    #details {
+        .wrap {
+            .pictures {
+                width: 40%
+            }
+            .description {
+                width: 60%;
+            }
+            .specification {
+                width: 100%;
+            }
+            .related-product {
+                font-size: $font-size-for-screen-1024px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 568px) {
+    #details {
+        .wrap {
+            .content,
+            .comments,
+            .related-product {
+                width: 100%;
+            }
+            .related-product {
+                .rel-list {
+                    .item {
+                        width: 33.333333%;
+                        display: inline-block
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 414px) {
+    html {
+        font-size: $font-size-for-screen-1024px;
+    }
+    #details {
+        .wrap {
+            .pictures,
+            .description {
+                width: 100%;
+            }
+            .pictures {
+                .photo {
+                    width: 70%;
+                }
+            }
+            .related-product {
+                .rel-list {
+                    .item {
+                        width: 50%;
+                        .picture {
+                            width: 70%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
