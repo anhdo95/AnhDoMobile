@@ -1,0 +1,17 @@
+@import "../../../assets/sass/helpers/includes";
+
+#contact {
+  @extend %standard-container;
+  margin-top: 70px;
+  padding: 0.5em 1em;
+  .title {
+      font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  #contact {
+      width: 100%;
+      margin-top: 55px;
+  }
+}
