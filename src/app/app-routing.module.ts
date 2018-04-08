@@ -7,6 +7,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 import { PaymentComponent } from './pages/payment/payment.component';
+import { CompleteOrderComponent } from './pages/complete-order/complete-order.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'cart', component: ShoppingCartComponent },
   { path: 'payment', component: PaymentComponent },
+  { path: 'complete-order', component: CompleteOrderComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

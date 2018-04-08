@@ -1,0 +1,33 @@
+@import "../../../assets/sass/helpers/includes";
+#complete-order {
+    @extend %standard-container;
+    margin-top: 75px;
+    font-size: 0.9em;
+    .info {
+        .title {
+            font-size: 1.2em;
+        }
+        .pro-list {
+            .item {
+                .name {
+                    font-size: 1em;
+                }
+                .price {
+                    color: $red;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #complete-order {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #complete-order {
+        margin-top: 60px;
+    }
+}

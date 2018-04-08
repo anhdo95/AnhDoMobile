@@ -6,6 +6,7 @@ import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { PaymentComponent } from './payment/payment.component';
+import { CompleteOrderComponent } from './complete-order/complete-order.component';
 
 @NgModule({
   imports: [
@@ -14,13 +15,20 @@ import { PaymentComponent } from './payment/payment.component';
     HomeComponent,
     ProductComponent,
     DetailsComponent,
-    ContactComponent, LoginComponent, ShoppingCartComponent, PaymentComponent],
+    ContactComponent,
+    LoginComponent,
+    ShoppingCartComponent,
+    PaymentComponent,
+    CompleteOrderComponent
+  ],
   exports: [HomeComponent,
     ProductComponent,
     DetailsComponent,
     ContactComponent,
     LoginComponent,
     ShoppingCartComponent,
-    PaymentComponent]
+    PaymentComponent,
+    CompleteOrderComponent
+  ]
 })
 export class PageModule { }
