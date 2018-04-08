@@ -57,3 +57,9 @@
         padding: 0.5em 1em;
     }
 }
+
+@media screen and (max-width: 414px) {
+  #shopping-cart {
+    font-size: 13px;
+  }
+}
