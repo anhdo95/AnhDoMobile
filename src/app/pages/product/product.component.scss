@@ -1,0 +1,87 @@
+@import "../../../assets/sass/helpers/includes";
+@import "../../../assets/sass/components/product-box";
+#top-product {
+    @extend %standard-container;
+    margin-top: 65px;
+    .filter {
+        list-style-type: none;
+        @extend %reset-padding-margin;
+        width: 100%;
+        background-color: $white;
+        >li {
+            display: inline-block;
+            >h1 {
+                display: inline-block;
+                font-size: 0.9em;
+                font-weight: 600;
+                padding: 5px;
+            }
+            a {
+                display: inline-block;
+                padding: 0.5em 0.8em;
+                font-size: 0.9em;
+                @extend %text-decoraction-none;
+                &.drop-select {
+                    select {
+                        width: initial;
+                        border-radius: 4px;
+                        padding-left: 0.5em;
+                    }
+                }
+            }
+        }
+    }
+    .banner {
+        margin-top: 0.5em;
+        .first {
+            padding-right: 3px;
+        }
+        .second {
+            padding-left: 3px;
+        }
+    }
+}
+
+#product {
+    @extend %standard-container;
+    .view-more {
+        margin-top: 0.5em;
+        a {
+            display: inline-block;
+            border: 1px solid #e1e1e1;
+            border-radius: 4px;
+            background-color: white;
+            padding: 0.6em 1.5em;
+            @extend %text-decoraction-none;
+            &:hover {
+                background-color: antiquewhite;
+                @extend %transition-all;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #top-product {
+        margin-top: 55px;
+        width: 100%;
+    }
+    #product {
+        overflow: hidden;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    #top-product {
+        .banner {
+            .row {
+                margin: 0;
+                .first,
+                .second {
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
