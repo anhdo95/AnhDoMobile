@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from './layouts/layout.module';
+import { PageModule } from './pages/page.module';
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import { LayoutModule } from './layouts/layout.module';
   ],
   imports: [
     BrowserModule,
-    LayoutModule
+    AppRoutingModule,
+    LayoutModule,
+    PageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
