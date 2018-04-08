@@ -1,0 +1,118 @@
+.boxes {
+    .title {
+        @extend %text-shadow-title;
+        margin-top: 0.8em;
+        padding: 5px;
+        font-size: 1.2em;
+        background-color: $white;
+    }
+    .products {
+        list-style-type: none;
+        @extend %reset-padding-margin;
+        margin-left: -$border-product-box;
+        .item {
+            float: left;
+            width: 20%;
+            height: 300px;
+            background-color: $white;
+            border-bottom: $border-product-box solid $body-color;
+            border-left: $border-product-box solid $body-color;
+            &.outstanding {
+                width: 40%;
+                a {
+                    .photo {
+                        width: auto;
+                    }
+                    .name,
+                    .price {
+                        font-size: 1em;
+                    }
+                }
+            }
+            a {
+                display: block;
+                @extend %text-decoraction-none;
+                color: $black;
+                .photo {
+                    @extend %margin-center;
+                    width: 180px;
+                    &:not(:first-child) {
+                        text-align: center;
+                    }
+                    img {
+                        width: 95%;
+                    }
+                }
+                .name {
+                    margin-top: 10px;
+                }
+                .name,
+                .price {
+                    font-size: 0.8em;
+                    @extend %padding-product-box;
+                }
+                .price {
+                    strong {
+                        color: $red;
+                    }
+                    .line-through {
+                        text-decoration: line-through;
+                    }
+                }
+                .promo {
+                    height: 34px;
+                    margin-top: 0.5em;
+                    @extend %padding-product-box;
+                    font-size: 0.72em;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .boxes {
+        .products {
+            .item {
+                a {
+                    .photo {
+                        width: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .boxes {
+        .products {
+            .item {
+                width: 25%;
+                &.outstanding {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .boxes {
+        .products {
+            .item {
+                width: 50%;
+                &.outstanding {
+                    width: 100%;
+                    height: 250px;
+                }
+                a {
+                    .name,
+                    .price {
+                        font-size: 0.8em;
+                    }
+                }
+            }
+        }
+    }
+}
