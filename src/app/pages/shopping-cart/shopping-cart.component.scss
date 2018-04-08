@@ -1,0 +1,59 @@
+@import "../../../assets/sass/helpers/includes";
+#shopping-cart {
+    @extend %standard-container;
+    margin-top: 75px;
+    .summary {
+        .products-order {
+            .item {
+                .picture {
+                    float: left;
+                    width: 25%;
+                    a {
+                        width: 75%;
+                    }
+                }
+                .info {
+                    float: left;
+                    width: 50%;
+                    .name {
+                        font-size: 1em;
+                    }
+                    .price {
+                        color: $red;
+                    }
+                    .btn-remove {
+                        cursor: pointer;
+                    }
+                }
+                .quantity {
+                    width: 25%;
+                    float: left;
+                }
+            }
+        }
+        .order-progress {
+            .total {
+                background-color: #ffe1c3ed;
+                @extend %reset-padding-margin;
+                list-style-type: none;
+                li {
+                    float: left;
+                    width: 100%;
+                    padding: 0.5em 0.8em;
+                    border-bottom: 1px solid $white;
+                    .price {
+                        color: $red;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 823px) {
+    #shopping-cart {
+        margin-top: 55px;
+        width: 100%;
+        padding: 0.5em 1em;
+    }
+}

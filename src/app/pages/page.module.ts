@@ -4,6 +4,7 @@ import { ProductComponent } from './product/product.component';
 import { DetailsComponent } from './details/details.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 @NgModule({
   imports: [
@@ -12,11 +13,12 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     ProductComponent,
     DetailsComponent,
-    ContactComponent, LoginComponent],
+    ContactComponent, LoginComponent, ShoppingCartComponent],
   exports: [HomeComponent,
     ProductComponent,
     DetailsComponent,
     ContactComponent,
-    LoginComponent]
+    LoginComponent,
+    ShoppingCartComponent]
 })
 export class PageModule { }
