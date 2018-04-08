@@ -79,9 +79,9 @@
               <i class="fa fa-volume-control-phone" aria-hidden="true"></i>Contact</a>
           <a href="javascript:void()">
               <i class="fa fa-pencil-square" aria-hidden="true"></i>About</a>
-          <span href="javascript:void()" class="btn-open">&#9776;</span>
+          <span href="javascript:void()" class="btn-open" (click)="showMobileNav(true)">&#9776;</span>
       </nav>
-      <nav id="sidenav-mobile" class="bg-danger h-100">
+      <nav id="sidenav-mobile" class="bg-danger h-100" [class.open]="showNav">
           <a href="/">
               <img class="logo-mobile" src="../../../assets/images/anhdomobile-logo.png" alt="Back to Anh Do Mobile home">
           </a>
@@ -99,7 +99,7 @@
               <i class="fa fa-volume-control-phone fa-fw" aria-hidden="true"></i>Contact</a>
           <a href="javascript:void()">
               <i class="fa fa-pencil-square fa-fw" aria-hidden="true"></i>About</a>
-          <a href="javascript:void()" class="btn-close position-absolute">&#9776;</a>
+          <a href="javascript:void()" class="btn-close position-absolute" (click)="showMobileNav(false)">&#9776;</a>
       </nav>
   </div>
 </header>

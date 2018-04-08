@@ -93,7 +93,7 @@ $anhdomobile-logo: '../../../assets/images/anhdomobile-logo.png';
         #sidenav-mobile {
             @include position-display(fixed);
             width: 0;
-            z-index: 10;
+            z-index: 102;
             padding-top: 5%;
             overflow-x: hidden;
             @extend %transition-all;
