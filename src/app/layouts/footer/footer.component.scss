@@ -1,0 +1,75 @@
+@import "../../../assets/sass/helpers/includes";
+#main-footer {
+    margin-top: 1em;
+    @extend %standard-box-shadow;
+    .back-to-top {
+        .go-up {
+            display: inline-block;
+            border: 30px solid transparent;
+            border-top: 30px solid yellow;
+            span {
+                top: -25px;
+                left: -6px;
+                cursor: pointer;
+            }
+        }
+    }
+    .row-foot1 {
+        padding-bottom: 1em;
+        margin-top: -1.5em;
+        @extend %standard-container;
+        .column {
+            float: left;
+            list-style-type: none;
+            @extend %reset-padding-margin;
+            width: 33.333333%;
+            li {
+                a {
+                    display: block;
+                    font-size: 0.9em;
+                    padding: 0.4em 0;
+                    color: #2c99e4;
+                    @extend %text-decoraction-none;
+                    &:hover {
+                        color: $black;
+                        @extend %transition-all;
+                    }
+                }
+            }
+        }
+    }
+    .row-foot2 {
+        .inner {
+            padding: 10px 0;
+            @extend %standard-container;
+        }
+    }
+}
+
+@media screen and (max-width: 823px) {
+    #main-footer {
+        .row-foot1 {
+            width: 100%;
+            padding: 0 0.8em;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #main-footer {
+        font-size: $font-size-for-screen-1024px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    #main-footer {
+        .row-foot1 {
+            .column {
+                width: 50%;
+                &:last-child {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
