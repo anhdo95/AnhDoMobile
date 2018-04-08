@@ -23,7 +23,7 @@ $anhdomobile-logo: '../../../assets/images/anhdomobile-logo.png';
                 }
             }
             .search-results {
-                display: block;
+                display: none;
                 margin-top: 6%;
                 min-width: 120%;
                 z-index: 101;
@@ -193,6 +193,9 @@ $anhdomobile-logo: '../../../assets/images/anhdomobile-logo.png';
                 img {
                     content: url($logo);
                 }
+            }
+            .search-form {
+              margin: 0.5em 0.9em 0;
             }
         }
     }

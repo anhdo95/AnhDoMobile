@@ -4,10 +4,8 @@
     @extend %standard-container;
 }
 
-
 @media screen and (max-width: 1024px) {
   #home {
-      overflow: hidden;
       width: 100%;
   }
 }
