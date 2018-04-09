@@ -10,7 +10,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { CompleteOrderComponent } from './complete-order/complete-order.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RecaptchaModule } from 'ng-recaptcha';
+import { RecaptchaModule, RECAPTCHA_LANGUAGE } from 'ng-recaptcha';
 
 @NgModule({
   imports: [
@@ -40,6 +40,12 @@ import { RecaptchaModule } from 'ng-recaptcha';
     PaymentComponent,
     CompleteOrderComponent,
     NotFoundComponent
+  ],
+  providers: [
+    {
+      provide: RECAPTCHA_LANGUAGE,
+      useValue: 'vi'
+    }
   ]
 })
 export class PageModule { }
