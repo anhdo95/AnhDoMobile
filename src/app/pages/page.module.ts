@@ -11,13 +11,15 @@ import { CompleteOrderComponent } from './complete-order/complete-order.componen
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule, RECAPTCHA_LANGUAGE } from 'ng-recaptcha';
+import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RecaptchaModule.forRoot()
+    RecaptchaModule.forRoot(),
+    RecaptchaFormsModule
   ],
   declarations: [
     HomeComponent,

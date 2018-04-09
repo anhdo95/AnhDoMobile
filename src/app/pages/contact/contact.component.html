@@ -2,28 +2,62 @@
   <div class="row">
     <div class="col-sm-6">
       <h2 class="title">Liên hệ với chúng tôi</h2>
-      <form class="my-3">
+      <form [formGroup]="contactForm" class="my-3">
         <div class="form-row">
           <div class="form-group col-md-6">
-            <input type="text" class="form-control rounded-0" placeholder="Họ và tên">
+            <input formControlName="fullName" type="text" class="form-control rounded-0" placeholder="Họ và tên">
+            <div *ngIf="contactForm.get('fullName').touched" class="text-danger">
+              <div *ngIf="contactForm.controls['fullName'].errors?.required">
+                {{ messages?.FULLNAME_IS_REQUIRED }}
+              </div>
+              <div *ngIf="contactForm.controls['fullName'].errors?.pattern">
+                {{ messages?.FULLNAME_IS_INVALID }}
+              </div>
+            </div>
           </div>
           <div class="form-group col-md-6">
-            <input type="text" class="form-control rounded-0" placeholder="Số điện thoại">
+            <input formControlName="phone" type="text" class="form-control rounded-0" placeholder="Số điện thoại">
+            <div *ngIf="contactForm.get('phone').touched" class="text-danger">
+              <div *ngIf="contactForm.controls['phone'].errors?.required">
+                {{ messages?.PHONE_IS_REQUIRED }}
+              </div>
+              <div *ngIf="contactForm.controls['phone'].errors?.pattern">
+                {{ messages?.PHONE_IS_INVALID }}
+              </div>
+            </div>
           </div>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control rounded-0" placeholder="Địa chỉ email">
+          <input formControlName="email" type="text" class="form-control rounded-0" placeholder="Địa chỉ email">
+          <div *ngIf="contactForm.get('email').touched" class="text-danger">
+            <div *ngIf="contactForm.controls['email'].errors?.required">
+              {{ messages?.EMAIL_IS_REQUIRED }}
+            </div>
+            <div *ngIf="contactForm.controls['email'].errors?.email && !contactForm.controls['email'].errors?.required">
+              {{ messages?.EMAIL_IS_INVALID }}
+            </div>
+          </div>
         </div>
         <div class="form-group">
-          <textarea class="form-control rounded-0" placeholder="Nội dung yêu cầu..."></textarea>
+          <textarea formControlName="content" class="form-control rounded-0" placeholder="Nội dung yêu cầu..."></textarea>
+          <div *ngIf="contactForm.get('content').touched" class="text-danger">
+            <div *ngIf="contactForm.controls['content'].errors?.required">
+              {{ messages?.CONTENT_IS_REQUIRED }}
+            </div>
+          </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <re-captcha (resolved)="resolved($event)" [siteKey]="reCAPTCHASiteKey"></re-captcha>
+            <re-captcha formControlName="reCaptcha"  [siteKey]="reCAPTCHASiteKey"></re-captcha>
+            <div *ngIf="contactForm.get('reCaptcha').touched" class="text-danger">
+                <div *ngIf="contactForm.controls['reCaptcha'].errors?.required">
+                  {{ messages?.RE_CAPTCHA_IS_REQUIRED }}
+                </div>
+              </div>
           </div>
         </div>
 
-        <button type="submit" class="btn btn-success rounded-0">Gửi</button>
+        <button (click)="saveContact()" type="submit" class="btn btn-success rounded-0 px-4">Gửi</button>
       </form>
     </div>
     <div class="col-sm-6">
