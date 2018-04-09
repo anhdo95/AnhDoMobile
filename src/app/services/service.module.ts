@@ -4,6 +4,7 @@ import { DataService } from './data.service';
 import { NgProgressModule } from 'ngx-progressbar';
 import { LoadingBarService } from './loading-bar.service';
 import { ConfigService } from './config.service';
+import { ApiService } from './api.service';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { ConfigService } from './config.service';
       useFactory: (config: ConfigService) => () => config.load(),
       deps: [ConfigService],
       multi: true
-    }
+    },
+    ApiService
   ]
 })
 export class ServiceModule { }
