@@ -8,9 +8,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { CompleteOrderComponent } from './pages/complete-order/complete-order.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'product', component: ProductComponent },
   { path: 'details', component: DetailsComponent },
   { path: 'contact', component: ContactComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'cart', component: ShoppingCartComponent },
   { path: 'payment', component: PaymentComponent },
   { path: 'complete-order', component: CompleteOrderComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
