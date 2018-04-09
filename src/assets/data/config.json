@@ -10,13 +10,18 @@
     "FULLNAME_IS_INVALID": "Họ và tên bạn nhập không hợp lệ.",
     "PHONE_IS_REQUIRED": "Vui lòng nhập số điện thoại.",
     "PHONE_IS_INVALID": "Số điện thoại bạn nhập không hợp lệ.",
+    "EMAIL_IS_REQUIRED": "Vui lòng nhập địa chỉ email.",
+    "EMAIL_IS_INVALID": "Địa chỉ email bạn nhập không hợp lệ.",
+    "CONTENT_IS_REQUIRED": "Vui lòng nhập nội dung.",
     "CITY_IS_REQUIRED": "Vui lòng chọn tỉnh / thành phố.",
     "DISTRICT_IS_REQUIRED": "Vui lòng chọn quận / huyện.",
+    "RE_CAPTCHA_IS_REQUIRED": "Vui lòng xác minh.",
     "ADDRESS_IS_REQUIRED": "Vui lòng nhập địa chỉ.",
     "ADDRESS_MAX": "Địa chỉ bạn nhập quá dài."
   },
   "reCAPTCHASiteKey": "6Ld-EVIUAAAAAGDJ0jup1GJY5YwNIDgFvmvlgJhW",
   "patterns": {
-    "validateFullName": "^[a-zA-Z\\sAÁÀẢÃẠÂẤẦẨẪẬĂẮẰẲẴẶEÉÈẺẼẸÊẾỀỂỄỆIÍÌỈĨỊOÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢUÚÙỦŨỤƯỨỪỬỮỰYÝỲỶỸỴĐaáàảãạâấầẩẫậăắằẳẵặeéèẻẽẹêếềểễệiíìỉĩịoóòỏõọôốồổỗộơớờởỡợuúùủũụưứừửữựyýỳỷỹỵđ]{3,50}$"
+    "validateFullName": "^[a-zA-Z\\sAÁÀẢÃẠÂẤẦẨẪẬĂẮẰẲẴẶEÉÈẺẼẸÊẾỀỂỄỆIÍÌỈĨỊOÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢUÚÙỦŨỤƯỨỪỬỮỰYÝỲỶỸỴĐaáàảãạâấầẩẫậăắằẳẵặeéèẻẽẹêếềểễệiíìỉĩịoóòỏõọôốồổỗộơớờởỡợuúùủũụưứừửữựyýỳỷỹỵđ]{3,50}$",
+    "validateVietnamesePhone": "^(\\+84|0)\\d{9,10}$"
   }
 }
