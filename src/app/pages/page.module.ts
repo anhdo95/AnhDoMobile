@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { DetailsComponent } from './details/details.component';
@@ -8,9 +9,13 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { PaymentComponent } from './payment/payment.component';
 import { CompleteOrderComponent } from './complete-order/complete-order.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     HomeComponent,

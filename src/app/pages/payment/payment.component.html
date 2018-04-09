@@ -3,16 +3,19 @@
     <div class="info col-lg-8 col-md-9 col-sm-10 col-12 m-auto bg-white py-2">
       <div class="cust-info mb-3">
         <h3 class="text-info title">1. Thông tin khách hàng</h3>
-        <form>
+        <form [formGroup]="paymentForm">
           <div class="form-group row">
             <div class="col-sm-9 offset-sm-3">
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="male" name="gender" class="custom-control-input" value="1">
+                <input formControlName="gender" type="radio" id="male" name="gender" class="custom-control-input" value="1">
                 <label class="custom-control-label" for="male">Anh</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="female" name="gender" class="custom-control-input" value="0">
+                <input formControlName="gender" type="radio" id="female" name="gender" class="custom-control-input" value="0">
                 <label class="custom-control-label" for="female">Chị</label>
+              </div>
+              <div *ngIf="paymentForm.get('gender').touched && paymentForm.controls['gender'].errors?.required" class="text-danger">
+                {{ messages?.GENDER_IS_REQUIRED }}
               </div>
             </div>
           </div>
@@ -22,7 +25,15 @@
               <span class="text-danger">*</span>
             </label>
             <div class="col-sm-9">
-              <input type="text" class="rounded-0 form-control" placeholder="Nhập họ và tên">
+              <input formControlName="fullName" type="text" class="rounded-0 form-control" placeholder="Nhập họ và tên">
+              <div *ngIf="paymentForm.get('fullName').touched" class="text-danger">
+                <div *ngIf="paymentForm.controls['fullName'].errors?.required">
+                  {{ messages?.FULLNAME_IS_REQUIRED }}
+                </div>
+                <div *ngIf="paymentForm.controls['fullName'].errors?.pattern">
+                    {{ messages?.FULLNAME_IS_INVALID }}
+                  </div>
+              </div>
             </div>
           </div>
           <div class="form-group row">
@@ -31,7 +42,15 @@
               <span class="text-danger">*</span>
             </label>
             <div class="col-sm-9">
-              <input type="text" class="rounded-0 form-control" placeholder="Nhập số điện thoại">
+              <input formControlName="phone" type="text" class="rounded-0 form-control" placeholder="Nhập số điện thoại">
+              <div *ngIf="paymentForm.get('phone').touched" class="text-danger">
+                <div *ngIf="paymentForm.controls['phone'].errors?.required">
+                  {{ messages?.PHONE_IS_REQUIRED }}
+                </div>
+                <div *ngIf="paymentForm.controls['phone'].errors?.pattern">
+                    {{ messages?.PHONE_IS_INVALID }}
+                </div>
+              </div>
             </div>
           </div>
         </form>
@@ -41,7 +60,6 @@
         <div class="type border">
           <a href="javascript:void()" class="text-center w-50 border-right border-bottom active">
             <i class="fa fa-truck" aria-hidden="true"></i>
-
             <p>Giao hàng tận nơi
               <br>
               <small>(Miễn phí)</small>
@@ -56,42 +74,56 @@
           </a>
           <div class="clearfix"></div>
           <div class="ship-des px-3 pt-5 pb-4">
-            <form>
+            <form [formGroup]="paymentForm">
               <div class="form-group row">
-                <label for="fullname" class="col-lg-3 col-sm-4 col-form-label">
+                <label for="city" class="col-lg-3 col-sm-4 col-form-label">
                   Tỉnh / Thành phố:
                   <span class="text-danger">*</span>
                 </label>
                 <div class="col-lg-9 col-sm-8">
-                  <select class="custom-select rounded-0">
-                    <option selected>Chọn Tỉnh / Thành phố</option>
+                  <select formControlName="city" class="custom-select rounded-0">
+                    <option value="" selected>Chọn Tỉnh / Thành phố</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                   </select>
+                  <div *ngIf="paymentForm.get('city').touched && paymentForm.controls['city'].errors?.required" class="text-danger">
+                      {{ messages?.CITY_IS_REQUIRED }}
+                    </div>
                 </div>
               </div>
               <div class="form-group row">
-                <label for="phone" class="col-lg-3 col-sm-4  col-form-label">
+                <label for="district" class="col-lg-3 col-sm-4  col-form-label">
                   Quận / Huyện:
                   <span class="text-danger">*</span>
                 </label>
                 <div class="col-lg-9 col-sm-8">
-                  <select class="custom-select rounded-0" disabled>
-                    <option selected>Chọn Quận / Huyện</option>
+                  <select formControlName="district" class="custom-select rounded-0" [attr.disabled]="paymentForm.controls['city'].errors?.required">
+                    <option value="" selected>Chọn Quận / Huyện</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                   </select>
+                  <div *ngIf="paymentForm.get('district').touched && paymentForm.controls['district'].errors?.required" class="text-danger">
+                      {{ messages?.DISTRICT_IS_REQUIRED }}
+                    </div>
                 </div>
               </div>
               <div class="form-group row">
-                <label for="phone" class="col-lg-3 col-sm-4 col-form-label">
+                <label for="address" class="col-lg-3 col-sm-4 col-form-label">
                   Địa chỉ:
                   <span class="text-danger">*</span>
                 </label>
                 <div class="col-lg-9 col-md-8 col-sm-8">
-                  <input type="text" class="rounded-0 form-control" placeholder="Nhập số nhà, tên đường, phường / xã">
+                  <input formControlName="address" type="text" class="rounded-0 form-control" placeholder="Nhập số nhà, tên đường, phường / xã">
+                  <div *ngIf="paymentForm.get('address').touched" class="text-danger">
+                      <div *ngIf="paymentForm.controls['address'].errors?.required">
+                        {{ messages?.ADDRESS_IS_REQUIRED }}
+                      </div>
+                      <div *ngIf="paymentForm.controls['address'].errors?.maxlength">
+                        {{ messages?.ADDRESS_MAX }}
+                      </div>
+                    </div>
                 </div>
               </div>
             </form>
@@ -121,7 +153,7 @@
               <br>Vui lòng bấm nút
               <b>"Đặt Hàng"</b> để hoàn tất</p>
             <hr>
-            <button class="btn btn-success btn-lg rounded-0 float-right">ĐẶT HÀNG</button>
+            <button (click)="saveOrder()" class="btn btn-success btn-lg rounded-0 float-right">ĐẶT HÀNG</button>
           </div>
         </div>
       </div>
