@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './data.service';
 import { NgProgressModule } from 'ngx-progressbar';
@@ -16,7 +16,13 @@ import { ConfigService } from './config.service';
   providers: [
     DataService,
     LoadingBarService,
-    ConfigService
+    ConfigService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (config: ConfigService) => () => config.load(),
+      deps: [ConfigService],
+      multi: true
+    }
   ]
 })
 export class ServiceModule { }

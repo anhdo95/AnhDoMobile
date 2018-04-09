@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
@@ -7,11 +7,9 @@ export class ConfigService {
 
   constructor(
     private http: HttpClient
-  ) {
-    this.load();
-  }
+  ) { }
 
-  private load() {
+  load(): Promise<any> {
     return new Promise((resolve, reject) => {
       const configUrl = 'assets/data/config.json';
       this.http.get(configUrl).subscribe(
@@ -22,8 +20,7 @@ export class ConfigService {
         error => {
           reject(error);
         });
-    })
-    .catch(error => {
+    }).catch(error => {
       console.error(new Error(error.message || error));
     });
   }
