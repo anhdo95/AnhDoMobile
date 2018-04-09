@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './data.service';
-import { ApiService } from './api.service';
 import { NgProgressModule } from 'ngx-progressbar';
 import { LoadingBarService } from './loading-bar.service';
+import { ConfigService } from './config.service';
 
 @NgModule({
   imports: [
-    HttpModule,
+    HttpClientModule,
     NgProgressModule
   ],
   exports: [
@@ -15,8 +15,8 @@ import { LoadingBarService } from './loading-bar.service';
   ],
   providers: [
     DataService,
-    ApiService,
-    LoadingBarService
+    LoadingBarService,
+    ConfigService
   ]
 })
 export class ServiceModule { }
