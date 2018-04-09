@@ -5,5 +5,15 @@
     "error": "error"
   },
   "messages": {
-  }
+    "GENDER_IS_REQUIRED": "Vui lòng chọn giới tính.",
+    "FULLNAME_IS_REQUIRED": "Vui lòng nhập họ và tên.",
+    "FULLNAME_IS_INVALID": "Họ và tên bạn nhập không hợp lệ.",
+    "PHONE_IS_REQUIRED": "Vui lòng nhập số điện thoại.",
+    "PHONE_IS_INVALID": "Số điện thoại bạn nhập không hợp lệ.",
+    "CITY_IS_REQUIRED": "Vui lòng chọn tỉnh / thành phố.",
+    "DISTRICT_IS_REQUIRED": "Vui lòng chọn quận / huyện.",
+    "ADDRESS_IS_REQUIRED": "Vui lòng nhập địa chỉ.",
+    "ADDRESS_MAX": "Địa chỉ bạn nhập quá dài."
+  },
+  "unicode": "AÁÀẢÃẠÂẤẦẨẪẬĂẮẰẲẴẶEÉÈẺẼẸÊẾỀỂỄỆIÍÌỈĨỊOÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢUÚÙỦŨỤƯỨỪỬỮỰYÝỲỶỸỴĐaáàảãạâấầẩẫậăắằẳẵặeéèẻẽẹêếềểễệiíìỉĩịoóòỏõọôốồổỗộơớờởỡợuúùủũụưứừửữựyýỳỷỹỵđ"
 }
