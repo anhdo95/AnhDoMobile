@@ -5,6 +5,7 @@ import { NgProgressModule } from 'ngx-progressbar';
 import { LoadingBarService } from './loading-bar.service';
 import { ConfigService } from './config.service';
 import { ApiService } from './api.service';
+import { HelperService } from './helper.service';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { ApiService } from './api.service';
       deps: [ConfigService],
       multi: true
     },
-    ApiService
+    ApiService,
+    HelperService
   ]
 })
 export class ServiceModule { }
