@@ -26,7 +26,7 @@ export class PaymentComponent implements OnInit {
   }
 
   setPaymentForm() {
-    const fullNamePattern = `^[a-zA-Z\\s${this.configService.get('unicode')}]{3,50}$`;
+    const fullNamePattern = this.configService.get('patterns').validateFullName;
     this.paymentForm = this.fb.group({
       gender: ['', Validators.required],
       fullName: ['', [Validators.required, Validators.pattern(fullNamePattern)]],

@@ -15,6 +15,8 @@
     "ADDRESS_IS_REQUIRED": "Vui lòng nhập địa chỉ.",
     "ADDRESS_MAX": "Địa chỉ bạn nhập quá dài."
   },
-  "unicode": "AÁÀẢÃẠÂẤẦẨẪẬĂẮẰẲẴẶEÉÈẺẼẸÊẾỀỂỄỆIÍÌỈĨỊOÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢUÚÙỦŨỤƯỨỪỬỮỰYÝỲỶỸỴĐaáàảãạâấầẩẫậăắằẳẵặeéèẻẽẹêếềểễệiíìỉĩịoóòỏõọôốồổỗộơớờởỡợuúùủũụưứừửữựyýỳỷỹỵđ",
-  "reCAPTCHASiteKey": "6Ld-EVIUAAAAAGDJ0jup1GJY5YwNIDgFvmvlgJhW"
+  "reCAPTCHASiteKey": "6Ld-EVIUAAAAAGDJ0jup1GJY5YwNIDgFvmvlgJhW",
+  "patterns": {
+    "validateFullName": "^[a-zA-Z\\sAÁÀẢÃẠÂẤẦẨẪẬĂẮẰẲẴẶEÉÈẺẼẸÊẾỀỂỄỆIÍÌỈĨỊOÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢUÚÙỦŨỤƯỨỪỬỮỰYÝỲỶỸỴĐaáàảãạâấầẩẫậăắằẳẵặeéèẻẽẹêếềểễệiíìỉĩịoóòỏõọôốồổỗộơớờởỡợuúùủũụưứừửữựyýỳỷỹỵđ]{3,50}$"
+  }
 }
