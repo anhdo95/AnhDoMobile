@@ -19,7 +19,7 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <input type="text" class="form-control rounded-0" placeholder="Nhập mã capcha">
+            <re-captcha (resolved)="resolved($event)" [siteKey]="reCAPTCHASiteKey"></re-captcha>
           </div>
         </div>
 

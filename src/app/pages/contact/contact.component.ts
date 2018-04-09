@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from './../../services/config.service';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  reCAPTCHASiteKey: string;
+
+  constructor(
+    configService: ConfigService
+  ) {
+    this.reCAPTCHASiteKey = configService.get('reCAPTCHASiteKey');
+  }
 
   ngOnInit() {
   }
 
+  resolvedReCAPTCHA(response: string) {
+  }
 }

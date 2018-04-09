@@ -10,12 +10,14 @@ import { PaymentComponent } from './payment/payment.component';
 import { CompleteOrderComponent } from './complete-order/complete-order.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RecaptchaModule.forRoot()
   ],
   declarations: [
     HomeComponent,
