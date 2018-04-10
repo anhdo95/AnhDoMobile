@@ -12,6 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule, RECAPTCHA_LANGUAGE } from 'ng-recaptcha';
 import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
+import { FacebookModule } from 'ngx-facebook';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
     FormsModule,
     ReactiveFormsModule,
     RecaptchaModule.forRoot(),
-    RecaptchaFormsModule
+    RecaptchaFormsModule,
+    FacebookModule.forRoot()
   ],
   declarations: [
     HomeComponent,

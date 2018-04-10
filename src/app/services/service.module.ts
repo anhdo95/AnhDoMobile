@@ -6,6 +6,7 @@ import { LoadingBarService } from './loading-bar.service';
 import { ConfigService } from './config.service';
 import { ApiService } from './api.service';
 import { HelperService } from './helper.service';
+import { FbService } from './fb.service';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { HelperService } from './helper.service';
       multi: true
     },
     ApiService,
-    HelperService
+    HelperService,
+    FbService
   ]
 })
 export class ServiceModule { }
