@@ -4,10 +4,7 @@ import { DataService } from './data.service';
 import { FacebookService, InitParams, LoginResponse, LoginStatus } from 'ngx-facebook';
 import { LoadingBarService } from './loading-bar.service';
 import secrets from '../../assets/data/secrets';
-
-enum Status {
-  connected = 'connected'
-}
+import { ConfigService } from './config.service';
 
 @Injectable()
 export class FbService {
@@ -16,7 +13,8 @@ export class FbService {
     private fb: FacebookService,
     private dataService: DataService,
     private loading: LoadingBarService,
-    private router: Router
+    private router: Router,
+    private configService: ConfigService
   ) {
     const initParams: InitParams = {
       appId: secrets.facebookAppId,
@@ -30,7 +28,7 @@ export class FbService {
   getCurrentUser(callback: (userInfo) => void) {
     this.loading.start();
     this.getLoginStatus(status => {
-      if (status === Status.connected) {
+      if (status === this.configService.get('status').connected) {
         this.getUserInfo(userInfo => {
           if (userInfo) {
             this.dataService.setCurrentUserLogin(userInfo.name);
@@ -62,7 +60,7 @@ export class FbService {
   login(returnUrl: string = '/') {
     this.fb.login()
       .then((res: LoginResponse) => {
-        if (res.status === Status.connected) {
+        if (res.status === this.configService.get('status').connected) {
           this.getUserInfo(userInfo => {
             if (userInfo) {
               this.dataService.setCurrentUserLogin(userInfo.name);

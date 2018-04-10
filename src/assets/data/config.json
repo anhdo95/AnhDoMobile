@@ -2,7 +2,8 @@
   "apiBase": "",
   "status": {
     "success": "ok",
-    "error": "error"
+    "error": "error",
+    "connected": "connected"
   },
   "messages": {
     "GENDER_IS_REQUIRED": "Vui lòng chọn giới tính.",
