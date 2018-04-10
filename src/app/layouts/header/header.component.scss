@@ -2,6 +2,25 @@
 $logo: '../../../assets/images/logo.png';
 $anhdomobile-logo: '../../../assets/images/anhdomobile-logo.png';
 
+#user-logged {
+    z-index: 100;
+    top: 10%;
+    right: 0;
+    padding: 0 0.57em;
+    cursor: pointer;
+    &:hover > .logout {
+      display: block;
+    }
+
+    .logout {
+      display: none;
+      &:hover {
+        cursor: pointer;
+        color: rgba(204, 30, 30, 0.842);
+      }
+    }
+}
+
 #main-header {
     top: 0;
     z-index: 100;
@@ -146,6 +165,10 @@ $anhdomobile-logo: '../../../assets/images/anhdomobile-logo.png';
 }
 
 @media screen and (max-width: 823px) {
+    #user-logged {
+      top: 8.5%;
+      padding: 0 0.45em;
+    }
     #main-header {
         .wrapper {
             >.logo {

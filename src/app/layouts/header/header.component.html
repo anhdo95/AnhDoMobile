@@ -1,3 +1,10 @@
+<div *ngIf="displayName" id="user-logged" class="text-right text-white bg-dark position-fixed">
+  <i class="fa fa-user fa-fw" aria-hidden="true"></i>
+  <span class="name">{{ displayName }}</span>
+  <div class="logout text-left" (click)="logout()">
+    <i class="fa fa-power-off fa-fw" aria-hidden="true"></i> Đăng xuất
+  </div>
+</div>
 <header id="main-header" class="bg-dark position-fixed w-100">
   <div class="wrapper">
       <a href="/" class="float-left logo">

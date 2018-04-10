@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FbService } from './../../services/fb.service';
+import { DataService } from './../../services/data.service';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   showNav: boolean;
+  displayName: string;
 
-  constructor() { }
+  constructor(
+    private dataService: DataService,
+    private fbService: FbService
+  ) { }
 
   ngOnInit() {
+    this.showCurrentUserLogged();
   }
 
   /**
@@ -19,5 +26,22 @@ export class HeaderComponent implements OnInit {
    */
   showMobileNav(isShow: boolean) {
     this.showNav = isShow;
+  }
+
+  showCurrentUserLogged() {
+    this.fbService.getCurrentUser(userInfo => {
+      if (userInfo) {
+        this.dataService.setCurrentUserLogin(userInfo.name);
+      }
+    });
+
+    this.dataService.currentUserLogged$.subscribe(
+      userName => {
+        this.displayName = userName;
+      });
+  }
+
+  logout() {
+    this.fbService.logout();
   }
 }
