@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private configService: ConfigService,
     private fbService: FbService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.getLoginStatus();
@@ -22,8 +22,7 @@ export class LoginComponent implements OnInit {
 
   getLoginStatus() {
     this.fbService.getLoginStatus(status => {
-      if (status) {
-        console.log(status);
+      if (status === this.configService.get('status').connected) {
         this.isLoggedIn = status === this.configService.get('status').connected;
       }
     });
