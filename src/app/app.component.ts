@@ -20,9 +20,7 @@ export class AppComponent implements OnInit {
   showBanner() {
     this.dataService.enableBannerComponent$.subscribe(
       enabled => {
-        if (enabled) {
-          this.enableBanner = enabled;
-        }
+        this.enableBanner = enabled;
       });
   }
 }

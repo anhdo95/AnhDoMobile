@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppComponent } from './../../app.component';
 import { DataService } from '../../services/data.service';
 
@@ -7,7 +7,7 @@ import { DataService } from '../../services/data.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   constructor(
     private dataService: DataService
   ) {
@@ -15,5 +15,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    this.dataService.enableBanner(false);
   }
 }
