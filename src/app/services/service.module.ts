@@ -7,6 +7,7 @@ import { ConfigService } from './config.service';
 import { ApiService } from './api.service';
 import { HelperService } from './helper.service';
 import { FbService } from './fb.service';
+import { HeaderService } from '../layouts/header/header.service';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { FbService } from './fb.service';
     },
     ApiService,
     HelperService,
-    FbService
+    FbService,
+    HeaderService
   ]
 })
 export class ServiceModule { }
