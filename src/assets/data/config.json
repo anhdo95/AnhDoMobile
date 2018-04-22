@@ -1,5 +1,25 @@
 {
-  "apiBase": "",
+  "apiBase": "http://localhost/AnhDoMobile-APIs/",
+  "APIs": {
+    "menu": "Menu",
+    "comment": {
+      "forProduct": "CommentsForProduct"
+    },
+    "viewOrder": "ViewOrder",
+    "cart": {
+      "addToCart": "AddToCart",
+      "changeQuantityFromCart": "ChangeQuantityFromCart",
+      "removeFromCart": "RemoveFromCart"
+    },
+    "product": {
+      "list": "Products",
+      "search": "SearchProducts",
+      "bestOutstanding": "BestOutstanding",
+      "bestSelling": "Product/BestSelling",
+      "detail": "ProductDetail",
+      "related": "Product/Related"
+    }
+  },
   "status": {
     "success": "ok",
     "error": "error",
