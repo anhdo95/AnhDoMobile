@@ -4,7 +4,7 @@ import { DataService } from './../../services/data.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HeaderService } from './header.service';
-import { Menu } from '../../models/menu';
+import { Menu, TargetLink } from '../../models/menu';
 
 
 @Component({
@@ -66,5 +66,9 @@ export class HeaderComponent implements OnInit {
         this.menus = menus;
       }
     });
+  }
+
+  parseTargetLink(target: TargetLink): string {
+    return TargetLink[target];
   }
 }
