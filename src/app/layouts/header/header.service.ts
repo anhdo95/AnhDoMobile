@@ -10,7 +10,6 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class HeaderService {
   apiStatus: any;
-  results: Product[] = [];
 
   constructor(
     private apiService: ApiService,

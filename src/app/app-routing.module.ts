@@ -12,14 +12,14 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'trang-chu', component: HomeComponent },
   { path: 'dien-thoai', component: ProductComponent },
   { path: 'dien-thoai/:MetaTitle', component: DetailsComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'cart', component: ShoppingCartComponent },
-  { path: 'payment', component: PaymentComponent },
-  { path: 'complete-order', component: CompleteOrderComponent },
+  { path: 'lien-he', component: ContactComponent },
+  { path: 'dang-nhap', component: LoginComponent },
+  { path: 'gio-hang', component: ShoppingCartComponent },
+  { path: 'thanh-toan', component: PaymentComponent },
+  { path: 'thong-tin-dat-hang', component: CompleteOrderComponent },
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ];
