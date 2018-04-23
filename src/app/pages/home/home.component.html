@@ -23,137 +23,21 @@
   <div class="boxes best-selling">
     <h1 class="title">ĐIỆN THOẠI BÁN CHẠY NHẤT</h1>
     <ul class="products">
-      <li class="item outstanding">
-        <a href="javascript:void()">
-          <div class="photo">
-            <img src="../../../assets/images/outstanding-product/huawei-nova-3e.png" alt="iphone 7 plus 128gb red">
-          </div>
-          <h3 class="name">iPhone 7 plus 128gb red</h3>
-          <div class="price">
-            <strong>11.200.999đ</strong>
-          </div>
-        </a>
-      </li>
-      <li class="item">
-        <a href="javascript:void()">
-          <div class="photo">
-            <img src="../../../assets/images/180x180/iphone-7-plus-128gb-red.jpg" alt="iphone 7 plus 128gb red">
-          </div>
-          <h3 class="name">iPhone 7 plus 128gb red</h3>
-          <div class="price">
-            <strong>11.200.999đ</strong>
-            <span class="line-through">12.200.999đ</span>
-          </div>
-          <div class="promo">
-            <p>Giảm 1 triệu thanh toán qua thẻ JCB và 1 K.mãi khác</p>
-          </div>
-        </a>
-      </li>
-      <li class="item">
-        <a href="javascript:void()">
-          <div class="photo">
-            <img src="../../../assets/images/180x180/iphone-7-plus-128gb-red.jpg" alt="iphone 7 plus 128gb red">
-          </div>
-          <h3 class="name">iPhone 7 plus 128gb red</h3>
-          <div class="price">
-            <strong>11.200.999đ</strong>
-            <span class="line-through">12.200.999đ</span>
-          </div>
-          <div class="promo">
-            <p>Giảm 1 triệu thanh toán qua thẻ JCB và 1 K.mãi khác</p>
-          </div>
-        </a>
-      </li>
-      <li class="item">
-        <a href="javascript:void()">
-          <div class="photo">
-            <img src="../../../assets/images/180x180/iphone-7-plus-128gb-red.jpg" alt="iphone 7 plus 128gb red">
-          </div>
-          <h3 class="name">iPhone 7 plus 128gb red</h3>
-          <div class="price">
-            <strong>11.200.999đ</strong>
-            <span class="line-through">12.200.999đ</span>
-          </div>
-          <div class="promo">
-            <p>Giảm 1 triệu thanh toán qua thẻ JCB và 1 K.mãi khác</p>
-          </div>
-        </a>
-      </li>
-      <li class="item">
-        <a href="javascript:void()">
-          <div class="photo">
-            <img src="../../../assets/images/180x180/iphone-7-plus-128gb-red.jpg" alt="iphone 7 plus 128gb red">
-          </div>
-          <h3 class="name">iPhone 7 plus 128gb red</h3>
-          <div class="price">
-            <strong>11.200.999đ</strong>
-            <span class="line-through">12.200.999đ</span>
-          </div>
-          <div class="promo">
-            <p>Giảm 1 triệu thanh toán qua thẻ JCB và 1 K.mãi khác</p>
-          </div>
-        </a>
-      </li>
-      <li class="item">
-        <a href="javascript:void()">
-          <div class="photo">
-            <img src="../../../assets/images/180x180/iphone-7-plus-128gb-red.jpg" alt="iphone 7 plus 128gb red">
-          </div>
-          <h3 class="name">iPhone 7 plus 128gb red</h3>
-          <div class="price">
-            <strong>11.200.999đ</strong>
-            <span class="line-through">12.200.999đ</span>
-          </div>
-          <div class="promo">
-            <p>Giảm 1 triệu thanh toán qua thẻ JCB và 1 K.mãi khác</p>
-          </div>
-        </a>
-      </li>
-      <li class="item">
-        <a href="javascript:void()">
-          <div class="photo">
-            <img src="../../../assets/images/180x180/iphone-7-plus-128gb-red.jpg" alt="iphone 7 plus 128gb red">
-          </div>
-          <h3 class="name">iPhone 7 plus 128gb red</h3>
-          <div class="price">
-            <strong>11.200.999đ</strong>
-            <span class="line-through">12.200.999đ</span>
-          </div>
-          <div class="promo">
-            <p>Giảm 1 triệu thanh toán qua thẻ JCB và 1 K.mãi khác</p>
-          </div>
-        </a>
-      </li>
-      <li class="item">
-        <a href="javascript:void()">
-          <div class="photo">
-            <img src="../../../assets/images/180x180/iphone-7-plus-128gb-red.jpg" alt="iphone 7 plus 128gb red">
-          </div>
-          <h3 class="name">iPhone 7 plus 128gb red</h3>
-          <div class="price">
-            <strong>11.200.999đ</strong>
-            <span class="line-through">12.200.999đ</span>
-          </div>
-          <div class="promo">
-            <p>Giảm 1 triệu thanh toán qua thẻ JCB và 1 K.mãi khác</p>
-          </div>
-        </a>
-      </li>
-      <li class="item">
-        <a href="javascript:void()">
-          <div class="photo">
-            <img src="../../../assets/images/180x180/iphone-7-plus-128gb-red.jpg" alt="iphone 7 plus 128gb red">
-          </div>
-          <h3 class="name">iPhone 7 plus 128gb red</h3>
-          <div class="price">
-            <strong>11.200.999đ</strong>
-            <span class="line-through">12.200.999đ</span>
-          </div>
-          <div class="promo">
-            <p>Giảm 1 triệu thanh toán qua thẻ JCB và 1 K.mãi khác</p>
-          </div>
-        </a>
-      </li>
+      <li class="item {{i == 0 ? 'outstanding': ''}}" *ngFor="let product of productsBestSelling; let i = index">
+          <a href="/dien-thoai/{{ product.MetaTitle }}">
+            <div class="photo">
+              <img src="../../../assets/images/180x180/{{ product.Image }}" [alt]="product.Name">
+            </div>
+            <h3 class="name">{{ product.Name }}</h3>
+            <div class="price">
+              <strong>{{ product.PromotionPrice || product.Price | number }}đ</strong>
+              <div class="line-through" *ngIf="product.PromotionPrice">{{ product.Price | number }}đ</div>
+            </div>
+            <div class="promo">
+              <p>{{ product.DiscountAccompanying }}</p>
+            </div>
+          </a>
+        </li>
     </ul>
   </div>
 </div>

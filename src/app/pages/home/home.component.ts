@@ -11,8 +11,8 @@ import { HomeService } from './home.service';
   providers: [HomeService]
 })
 export class HomeComponent implements OnInit, OnDestroy {
-
   productsBestOutstanding: Product[] = [];
+  productsBestSelling: Product[] = [];
 
   constructor(
     private dataService: DataService,
@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loadProductsBestOutstanding();
+    this.loadProductsBestSelling();
   }
 
   ngOnDestroy() {
@@ -33,6 +34,14 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.homeService.getProductBestOutstanding(products => {
       if (products) {
         this.productsBestOutstanding = products;
+      }
+    });
+  }
+
+  loadProductsBestSelling() {
+    this.homeService.getProductBestSelling(products => {
+      if (products) {
+        this.productsBestSelling = products;
       }
     });
   }
