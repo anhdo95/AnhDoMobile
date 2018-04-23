@@ -41,9 +41,7 @@ export class DetailsComponent implements OnInit {
   }
 
   addToCart(productId: number) {
-    this.detailsService.addToCart(productId, res => {
-      console.log(res);
-    });
+    this.detailsService.addToCart(productId);
   }
 
   replaceImages(image: string) {
