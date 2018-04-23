@@ -6,6 +6,7 @@ export class Product {
     public Image: string,
     public Price: number,
     public PromotionPrice?: number,
-    public DiscountAccompanying?: string) {
+    public DiscountAccompanying?: string,
+    public LargeImage?: string) {
   }
 }

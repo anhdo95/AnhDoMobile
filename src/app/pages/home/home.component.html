@@ -5,7 +5,7 @@
       <li class="item {{i == 0 ? 'outstanding': ''}}" *ngFor="let product of productsBestOutstanding; let i = index">
         <a href="/dien-thoai/{{ product.MetaTitle }}">
           <div class="photo">
-            <img src="../../../assets/images/180x180/{{ product.Image }}" [alt]="product.Name">
+            <img src="../../../assets/images/180x180/{{ i == 0 ? product.LargeImage : product.Image }}" [alt]="product.Name">
           </div>
           <h3 class="name">{{ product.Name }}</h3>
           <div class="price">
@@ -26,7 +26,7 @@
       <li class="item {{i == 0 ? 'outstanding': ''}}" *ngFor="let product of productsBestSelling; let i = index">
           <a href="/dien-thoai/{{ product.MetaTitle }}">
             <div class="photo">
-              <img src="../../../assets/images/180x180/{{ product.Image }}" [alt]="product.Name">
+              <img src="../../../assets/images/180x180/{{ i == 0 ? product.LargeImage : product.Image }}" [alt]="product.Name">
             </div>
             <h3 class="name">{{ product.Name }}</h3>
             <div class="price">
