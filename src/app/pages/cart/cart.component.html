@@ -1,4 +1,4 @@
-<div id="shopping-cart">
+<div id="shopping-cart" *ngIf="cart">
   <div class="row">
     <div class="summary col-lg-9 col-12 m-auto bg-white py-2">
       <div class="clearfix">
@@ -11,16 +11,16 @@
       <div class="row">
         <div class="products-order col-sm-7 col-12 clearfix mb-3">
           <!-- item -->
-          <div class="item clearfix">
+          <div class="item clearfix" *ngFor="let item of cart.CartItems">
             <div class="picture text-center">
-              <a href="#" class="d-block">
-                <img class="w-100 img-thumbnail" src="../../../assets/images/180x180/iphone-7-plus-128gb-red.jpg" alt="">
+              <a href="/dien-thoai/{{ item.ProductMetaTitle }}" class="d-block">
+                <img class="w-100 img-thumbnail" src="../../../assets/images/180x180/{{ item.ProductImage }}" alt="">
               </a>
             </div>
             <div class="info">
-              <h3 class="name">iPhone 7 plus 128gb red</h3>
+              <h3 class="name">{{ item.ProductName }}</h3>
               <div>
-                <strong class="price">12.500.900đ</strong>
+                <strong class="price">{{ item.Price | number }}đ</strong>
               </div>
               <div class="mt-2">
                 <span class="btn-remove badge badge-danger">
@@ -33,7 +33,7 @@
                 <button type="button" class="btn btn-light btn-sm">
                   <i class="fa fa-minus" aria-hidden="true"></i>
                 </button>
-                <button type="button" class="btn btn-light btn-sm">1</button>
+                <button type="button" class="btn btn-light btn-sm">{{ item.Quantity }}</button>
                 <button type="button" class="btn btn-light btn-sm">
                   <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
@@ -44,37 +44,6 @@
             </div>
           </div>
           <!-- ./item -->
-          <!-- item -->
-          <div class="item clearfix">
-            <div class="picture text-center">
-              <a href="#" class="d-block">
-                <img class="w-100 img-thumbnail" src="../../../assets/images/180x180/iphone-7-plus-128gb-red.jpg" alt="">
-              </a>
-            </div>
-            <div class="info">
-              <h3 class="name">iPhone 7 plus 128gb red</h3>
-              <div>
-                <strong class="price">12.500.900đ</strong>
-              </div>
-              <div class="mt-2">
-                <span class="btn-remove badge badge-danger">
-                  <i class="fa fa-times-circle" aria-hidden="true"></i> Xóa
-                </span>
-              </div>
-            </div>
-            <div class="quantity text-right">
-              <div class="btn-group" role="group">
-                <button type="button" class="btn btn-light btn-sm">
-                  <i class="fa fa-minus" aria-hidden="true"></i>
-                </button>
-                <button type="button" class="btn btn-light btn-sm">1</button>
-                <button type="button" class="btn btn-light btn-sm">
-                  <i class="fa fa-plus" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- ./item -->
         </div>
         <div class="order-progress col-sm-5 col-12">
           <ul class="clearfix total">
@@ -82,7 +51,7 @@
               <div>
                 <span class="float-left">Tạm tính:</span>
                 <span class="float-right">
-                  <strong>12.500.000đ</strong>
+                  <strong>{{ cart.CartTotalPrice | number }}đ</strong>
                 </span>
               </div>
             </li>
@@ -92,7 +61,7 @@
                   <strong>Tổng cộng:</strong>
                 </span>
                 <span class="float-right">
-                  <strong class="price">25.000.000đ</strong>
+                  <strong class="price">{{ cart.CartTotalPrice | number }}đ</strong>
                 </span>
               </div>
             </li>
