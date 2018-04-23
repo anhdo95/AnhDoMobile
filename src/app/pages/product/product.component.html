@@ -2,38 +2,34 @@
   <ul class="filter">
     <li>
       <h1>Điện thoại: </h1>
-      <a href="javascript:void()">Apple</a>
-      <a href="javascript:void()">Samsung</a>
-      <a href="javascript:void()">Oppo</a>
+      <a href="javascript:void()" (click)="filterCategory('apple')">Apple</a>
+      <a href="javascript:void()" (click)="filterCategory('samsung')">Samsung</a>
+      <a href="javascript:void()" (click)="filterCategory('oppo')">Oppo</a>
       <a href="javascript:void()" class="drop-select">
         Hãng khác:
-        <select class="custom-select custom-select-sm">
-          <option>Tất cả hãng</option>
-          <option>Apple</option>
-          <option>Samsung</option>
-          <option>Oppo</option>
-          <option>HTC</option>
-          <option>Xiaomi</option>
-          <option>Sony</option>
+        <select class="custom-select custom-select-sm" [(ngModel)]="filterQuery.category">
+          <option value="">Tất cả hãng</option>
+          <option [value]="category.MetaTitle" *ngFor="let category of categories">
+            {{ category.Name }}
+          </option>
         </select>
       </a>
     </li>
     <li>
       <a href="javascript:void()" class="drop-select">Mức giá:
-        <select class="custom-select custom-select-sm">
-          <option>Tất cả mức giá</option>
-          <option>Dưới 2 triệu</option>
-          <option>Từ 2 - 5 triệu</option>
-          <option>Từ 5 - 10 triệu</option>
-          <option>Trên 10 triệu</option>
+        <select class="custom-select custom-select-sm" [(ngModel)]="filterQuery.price">
+          <option [value]="filterByPriceEnum.All">Tất cả mức giá</option>
+          <option [value]="filterByPriceEnum.From3To6M">Từ 3 - 6 triệu</option>
+          <option [value]="filterByPriceEnum.From6To10M">Từ 6 - 10 triệu</option>
+          <option [value]="filterByPriceEnum.GreaterThan10M">Trên 10 triệu</option>
         </select>
       </a>
     </li>
     <li>
       <a href="javascript:void()" class="drop-select">Sắp xếp theo:
-        <select class="custom-select custom-select-sm">
-          <option>Giá tăng dần</option>
-          <option>Giá giảm dần</option>
+        <select class="custom-select custom-select-sm" [(ngModel)]="filterQuery.sort" >
+          <option [value]="sortByPriceEnum.ASC">Giá tăng dần</option>
+          <option [value]="sortByPriceEnum.DESC">Giá giảm dần</option>
         </select>
       </a>
     </li>
@@ -52,9 +48,12 @@
 
 <section id="product">
   <div class="boxes">
-    <h1 class="title">{{ products.length }} sản phẩm</h1>
+    <h1 class="title"></h1>
     <ul class="products">
-      <li class="item" *ngFor="let product of products">
+      <li class="item" *ngFor="let product of (products |
+        filterProductCategory: filterQuery.category |
+        filterProductPrice: filterQuery.price |
+        sortPrice: filterQuery.sort)">
         <a href="/dien-thoai/{{ product.MetaTitle }}">
           <div class="photo">
             <img src="../../../assets/images/180x180/{{ product.Image }}" [alt]="product.Name">
@@ -72,9 +71,4 @@
     </ul>
   </div>
   <div class="clearfix"></div>
-  <div class="text-center view-more">
-    <a href="javascript:void()">Xem thêm 40 sản phẩm
-      <i class="fa fa-caret-down fa-fw" aria-hidden="true"></i>
-    </a>
-  </div>
 </section>

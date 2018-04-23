@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from './product.service';
-import { Product } from '../../models/product';
+import { Product, Category } from '../../models/product';
+import { SortByPriceEnum, FilterByPriceEnum } from '../../enums/product';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-product',
@@ -10,6 +12,15 @@ import { Product } from '../../models/product';
 })
 export class ProductComponent implements OnInit {
   products: Product[] = [];
+  categories: Category[] = [];
+  sortByPriceEnum = SortByPriceEnum;
+  filterByPriceEnum = FilterByPriceEnum;
+
+  filterQuery = {
+    category: '',
+    price: FilterByPriceEnum.All,
+    sort: SortByPriceEnum.DESC
+  };
 
   constructor(
     private productService: ProductService) {
@@ -17,6 +28,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     this.loadProducts();
+    this.loadCategories();
   }
 
   loadProducts() {
@@ -25,5 +37,17 @@ export class ProductComponent implements OnInit {
         this.products = products;
       }
     });
+  }
+
+  loadCategories() {
+    this.productService.getCategories(categories => {
+      if (categories) {
+        this.categories = categories;
+      }
+    });
+  }
+
+  filterCategory(category: string) {
+    this.filterQuery.category = category;
   }
 }

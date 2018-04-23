@@ -7,6 +7,15 @@ export class Product {
     public Price: number,
     public PromotionPrice?: number,
     public DiscountAccompanying?: string,
-    public LargeImage?: string) {
+    public LargeImage?: string,
+    public CategoryName?: string) {
+  }
+}
+
+export class Category {
+  constructor(
+    public Id: number,
+    public Name: string,
+    public MetaTitle: string) {
   }
 }

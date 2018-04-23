@@ -3,7 +3,7 @@ import { ApiService } from '../../services/api.service';
 import { ConfigService } from '../../services/config.service';
 import { LoadingBarService } from '../../services/loading-bar.service';
 import { ToastrService } from 'ngx-toastr';
-import { Product } from '../../models/product';
+import { Product, Category } from '../../models/product';
 
 @Injectable()
 export class ProductService {
@@ -28,6 +28,27 @@ export class ProductService {
             products.push(product);
           });
           callback(products);
+        } else if (res.Status === this.apiStatus.error) {
+          this.toastr.error(res.StatusMessage, 'Error Message!');
+        }
+        this.loadingService.stop();
+      }, error => {
+        this.toastr.error(error.message || error, 'Error Message!');
+      }
+    );
+  }
+
+  getCategories(callback: (products) => void): void {
+    const api = this.configService.get('APIs').product.categories;
+    this.loadingService.start();
+    this.apiService.get(api).subscribe(
+      res => {
+        if (res.Status === this.apiStatus.success) {
+          let categories = new Array<Category>();
+          res.References.Categories.map(category => {
+            categories.push(category);
+          });
+          callback(categories);
         } else if (res.Status === this.apiStatus.error) {
           this.toastr.error(res.StatusMessage, 'Error Message!');
         }

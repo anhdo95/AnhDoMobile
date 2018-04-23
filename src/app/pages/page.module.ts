@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule, RECAPTCHA_LANGUAGE } from 'ng-recaptcha';
 import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 import { FacebookModule } from 'ngx-facebook';
+import { PipeModule } from './../pipes/pipe.module';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { FacebookModule } from 'ngx-facebook';
     ReactiveFormsModule,
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule,
-    FacebookModule.forRoot()
+    FacebookModule.forRoot(),
+    PipeModule
   ],
   declarations: [
     HomeComponent,
@@ -32,7 +34,7 @@ import { FacebookModule } from 'ngx-facebook';
     ShoppingCartComponent,
     PaymentComponent,
     CompleteOrderComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   exports: [
     HomeComponent,
