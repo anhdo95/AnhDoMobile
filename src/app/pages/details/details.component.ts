@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DetailsService } from './details.service';
-import { ProductDetail } from '../../models/product';
+import { ProductDetail, Related } from '../../models/product';
 
 @Component({
   selector: 'app-details',
@@ -11,6 +11,8 @@ import { ProductDetail } from '../../models/product';
 })
 export class DetailsComponent implements OnInit {
   details: ProductDetail;
+  productsRelated: Related[];
+
   constructor(
     private route: ActivatedRoute,
     private detailsService: DetailsService
@@ -22,9 +24,18 @@ export class DetailsComponent implements OnInit {
   }
 
   getDetails(metaTitle: string) {
-    this.detailsService.getDetails(metaTitle, details => {
+    this.detailsService.getDetails(metaTitle, (details: ProductDetail) => {
       if (details) {
         this.details = details;
+        this.getProductsRelated(details.Id);
+      }
+    });
+  }
+
+  getProductsRelated(id: number) {
+    this.detailsService.getProductRelated(id, products => {
+      if (products) {
+        this.productsRelated = products;
       }
     });
   }

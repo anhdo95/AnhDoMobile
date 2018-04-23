@@ -79,6 +79,7 @@
                 .item {
                     color: #414141;
                     padding: 0.5em 0;
+                    font-size: 0.9em;
                     @extend %text-decoraction-none;
                     &:not(:last-child) {
                         border-bottom: 1px solid $gray;
@@ -89,7 +90,7 @@
                     .media-body {
                         width: 70%;
                         h5 {
-                            font-size: 1.1em;
+                            font-size: 0.9em;
                         }
                         .price {
                             strong {

@@ -54,3 +54,18 @@ export class Specification {
     public PinCapacity: string
   ) { }
 }
+
+export class Related {
+  constructor(
+    Id: number,
+    CameraAfter: string,
+    CameraBefore: string,
+    PinCapacity: string,
+    Screen: string,
+    Name: string,
+    MetaTitle: string,
+    Image: string,
+    Price: number,
+    PromotionPrice?: string,
+  ) { }
+}
