@@ -14,7 +14,7 @@
     "product": {
       "list": "Products",
       "search": "SearchProducts",
-      "bestOutstanding": "BestOutstanding",
+      "bestOutstanding": "Product/BestOutstanding",
       "bestSelling": "Product/BestSelling",
       "detail": "ProductDetail",
       "related": "Product/Related"
