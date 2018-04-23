@@ -5,7 +5,7 @@ import { ProductComponent } from './pages/product/product.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { LoginComponent } from './pages/login/login.component';
-import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+import { CartComponent } from './pages/cart/cart.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { CompleteOrderComponent } from './pages/complete-order/complete-order.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'dien-thoai/:MetaTitle', component: DetailsComponent },
   { path: 'lien-he', component: ContactComponent },
   { path: 'dang-nhap', component: LoginComponent },
-  { path: 'gio-hang', component: ShoppingCartComponent },
+  { path: 'gio-hang', component: CartComponent },
   { path: 'thanh-toan', component: PaymentComponent },
   { path: 'thong-tin-dat-hang', component: CompleteOrderComponent },
   { path: '', redirectTo: '', pathMatch: 'full' },

@@ -5,7 +5,7 @@ import { ProductComponent } from './product/product.component';
 import { DetailsComponent } from './details/details.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { CartComponent } from './cart/cart.component';
 import { PaymentComponent } from './payment/payment.component';
 import { CompleteOrderComponent } from './complete-order/complete-order.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -31,7 +31,7 @@ import { PipeModule } from './../pipes/pipe.module';
     DetailsComponent,
     ContactComponent,
     LoginComponent,
-    ShoppingCartComponent,
+    CartComponent,
     PaymentComponent,
     CompleteOrderComponent,
     NotFoundComponent,
@@ -42,7 +42,7 @@ import { PipeModule } from './../pipes/pipe.module';
     DetailsComponent,
     ContactComponent,
     LoginComponent,
-    ShoppingCartComponent,
+    CartComponent,
     PaymentComponent,
     CompleteOrderComponent,
     NotFoundComponent
