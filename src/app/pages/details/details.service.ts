@@ -5,6 +5,7 @@ import { ConfigService } from '../../services/config.service';
 import { LoadingBarService } from '../../services/loading-bar.service';
 import { ToastrService } from 'ngx-toastr';
 import { ProductDetail, Related } from '../../models/product';
+import { HelperService } from '../../services/helper.service';
 
 @Injectable()
 export class DetailsService {
@@ -61,21 +62,35 @@ export class DetailsService {
     );
   }
 
-  addToCart(productId: number): void {
-    const api = this.configService.get('APIs').cart.addToCart;
-    let params = { productId: productId };
+  async addToCart(productId: number): Promise<any> {
+    const cart = this.configService.get('APIs').cart;
+    const cartId = cart.cartIdToken;
+
+    if (!localStorage.getItem(cartId)) {
+      let api = cart.getCartId;
+      let response = await this.apiService.get(api).toPromise().then(res => res);
+      localStorage.setItem(cartId, response.CartId);
+    }
+    await this.addProductToCart(productId, cartId);
+  }
+
+  addProductToCart(productId: number, cartId: string) {
     this.loadingService.start();
-    this.apiService.post(api, params).subscribe(
-      res => {
+    const api = this.configService.get('APIs').cart.addToCart;
+    let params = {
+      productId: productId,
+      cartId: localStorage.getItem(cartId)
+    };
+
+    this.apiService.post(api, params)
+      .toPromise()
+      .then(res => {
         if (res.Status === this.apiStatus.success) {
           this.router.navigateByUrl('/gio-hang');
         } else if (res.Status === this.apiStatus.error) {
           this.toastr.error(res.StatusMessage, 'Error Message!');
         }
         this.loadingService.stop();
-      }, error => {
-        this.toastr.error(error.message || error, 'Error Message!');
-      }
-    );
+      }).catch(error => this.toastr.error(error.message || error, 'Error Message!'));
   }
 }

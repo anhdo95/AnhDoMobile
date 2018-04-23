@@ -1,12 +1,15 @@
 {
   "apiBase": "http://localhost/AnhDoMobile-APIs/",
+
   "APIs": {
     "menu": "Menu",
     "comment": {
       "forProduct": "CommentsForProduct"
     },
-    "viewOrder": "ViewOrder",
     "cart": {
+      "cartIdToken": "AD_CARTID_TOKEN",
+      "getCartId": "GetCartId",
+      "list": "ViewOrder",
       "addToCart": "AddToCart",
       "changeQuantityFromCart": "ChangeQuantityFromCart",
       "removeFromCart": "RemoveFromCart"
