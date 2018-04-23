@@ -12,7 +12,7 @@
       </a>
       <form class="float-left search-form position-relative">
           <div class="input-group">
-              <input type="text" class="form-control rounded-0" placeholder="Bạn tìm gì..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+              <input (keyup)="searchProducts($event.target.value)" type="text" class="form-control rounded-0" placeholder="Bạn tìm gì..." aria-label="Recipient's username" aria-describedby="basic-addon2">
               <div class="input-group-append">
                   <button class="btn btn-warning rounded-0">
                       <i class="fa fa-search"></i>
@@ -20,52 +20,16 @@
               </div>
           </div>
 
-          <div class="search-results bg-white w-100 position-absolute">
-              <a href="#" class="clearfix py-1">
-                  <div class="picture float-left">
-                      <img class="w-100" src="../../../assets/images/180x180/iphone-7-plus-128gb-red.jpg" alt="">
+          <div class="search-results bg-white w-100 position-absolute" [hidden]="!productList.length">
+              <a href="/dien-thoai/{{ product.MetaTitle }}" class="clearfix py-1" *ngFor="let product of productList">
+                  <div class="picture float-left text-center">
+                      <img class="w-75" src="../../../assets/images/180x180/{{ product.Image }}" alt="">
                   </div>
                   <div class="desc float-left mt-1">
-                      <h3 class="name">iPhone 7 plus 128gb red</h3>
+                      <h3 class="name">{{ product.Name }}</h3>
                       <div class="price">
-                          <strong>11.200.999đ</strong>
-                          <div class="line-through">12.200.999đ</div>
-                      </div>
-                  </div>
-              </a>
-              <a href="#" class="clearfix py-1">
-                  <div class="picture float-left">
-                      <img class="w-100" src="../../../assets/images/180x180/iphone-7-plus-128gb-red.jpg" alt="">
-                  </div>
-                  <div class="desc float-left mt-1">
-                      <h3 class="name">iPhone 7 plus 128gb red</h3>
-                      <div class="price">
-                          <strong>11.200.999đ</strong>
-                          <div class="line-through">12.200.999đ</div>
-                      </div>
-                  </div>
-              </a>
-              <a href="#" class="clearfix py-1">
-                  <div class="picture float-left">
-                      <img class="w-100" src="../../../assets/images/180x180/iphone-7-plus-128gb-red.jpg" alt="">
-                  </div>
-                  <div class="desc float-left mt-1">
-                      <h3 class="name">iPhone 7 plus 128gb red</h3>
-                      <div class="price">
-                          <strong>11.200.999đ</strong>
-                          <div class="line-through">12.200.999đ</div>
-                      </div>
-                  </div>
-              </a>
-              <a href="#" class="clearfix py-1">
-                  <div class="picture float-left">
-                      <img class="w-100" src="../../../assets/images/180x180/iphone-7-plus-128gb-red.jpg" alt="">
-                  </div>
-                  <div class="desc float-left mt-1">
-                      <h3 class="name">iPhone 7 plus 128gb red</h3>
-                      <div class="price">
-                          <strong>11.200.999đ</strong>
-                          <div class="line-through">12.200.999đ</div>
+                          <strong>{{ product.PromotionPrice || product.Price | number }}đ</strong>
+                          <div class="line-through" *ngIf="product.PromotionPrice">{{ product.Price | number }}đ</div>
                       </div>
                   </div>
               </a>

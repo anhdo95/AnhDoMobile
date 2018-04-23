@@ -4,16 +4,19 @@ import { ConfigService } from '../../services/config.service';
 import { LoadingBarService } from '../../services/loading-bar.service';
 import { ToastrService } from 'ngx-toastr';
 import { Menu } from '../../models/menu';
+import { Product } from '../../models/product';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class HeaderService {
   apiStatus: any;
+  results: Product[] = [];
 
   constructor(
     private apiService: ApiService,
     private configService: ConfigService,
     private loadingService: LoadingBarService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
   ) {
     this.apiStatus = this.configService.get('status');
   }
@@ -39,4 +42,21 @@ export class HeaderService {
     );
   }
 
+  searchProducts(term: string): Observable<Product[]> {
+    const api = `${this.configService.get('APIs').product.search}?keyword=${term}`;
+    this.loadingService.start();
+    let products = this.apiService.get(api).map(res =>
+      res.References.Products.map(product =>
+        new Product(
+          product.Id,
+          product.Name,
+          product.MetaTitle,
+          product.Image,
+          product.Price,
+          product.PromotionPrice
+        )
+      ));
+    this.loadingService.stop();
+    return products;
+  }
 }

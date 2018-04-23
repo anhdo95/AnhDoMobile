@@ -25,6 +25,7 @@
     "error": "error",
     "connected": "connected"
   },
+  "debounceTime": "500",
   "messages": {
     "GENDER_IS_REQUIRED": "Vui lòng chọn giới tính.",
     "FULLNAME_IS_REQUIRED": "Vui lòng nhập họ và tên.",

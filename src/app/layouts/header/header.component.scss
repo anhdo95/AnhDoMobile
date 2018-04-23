@@ -42,7 +42,6 @@ $anhdomobile-logo: '../../../assets/images/anhdomobile-logo.png';
                 }
             }
             .search-results {
-                display: none;
                 margin-top: 6%;
                 min-width: 120%;
                 z-index: 101;
@@ -58,17 +57,17 @@ $anhdomobile-logo: '../../../assets/images/anhdomobile-logo.png';
                 a {
                     display: block;
                     color: $black;
-                    font-size: 0.9em;
+                    font-size: 0.8em;
                     &:not(:last-child) {
                         border-bottom: 1px solid $gray;
                     }
                     .picture {
-                        width: 25%;
+                        width: 30%;
                     }
                     .desc {
-                        width: 75%;
+                        width: 70%;
                         .name {
-                            font-size: 1em;
+                            font-size: 0.9em;
                         }
                         .price {
                             strong {
