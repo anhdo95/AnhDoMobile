@@ -13,8 +13,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'product', component: ProductComponent },
-  { path: 'details', component: DetailsComponent },
+  { path: 'dien-thoai', component: ProductComponent },
+  { path: 'dien-thoai/:MetaTitle', component: DetailsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
   { path: 'cart', component: ShoppingCartComponent },

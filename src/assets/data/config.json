@@ -13,6 +13,7 @@
     },
     "product": {
       "list": "Products",
+      "categories": "Categories",
       "search": "SearchProducts",
       "bestOutstanding": "Product/BestOutstanding",
       "bestSelling": "Product/BestSelling",
