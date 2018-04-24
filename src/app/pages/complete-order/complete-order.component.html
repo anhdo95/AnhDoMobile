@@ -41,10 +41,10 @@
           <h2 class="title text-danger alert alert-info rounded-0">Sản phẩm đã lựa chọn</h2>
           <div class="item row pb-2" *ngFor="let order of orderComplete.OrderItems">
             <div class="pic col-md-3 col-4 text-center">
-              <img class="w-75 h-100 img-thumbnail" src="../../../assets/images/180x180/iphone-7-plus-128gb-red.jpg" alt="">
+              <img class="w-75 h-100 img-thumbnail" src="../../../assets/images/180x180/{{ order.Image }}" alt="">
             </div>
             <div class="col-md-9 col-8">
-              <h3 class="name mt-1">iPhone 7 plus 128gb red</h3>
+              <h3 class="name mt-1">{{ order.Name }}</h3>
               <div>
                 <strong class="price">{{ order.Price | number }}đ</strong>
               </div>
