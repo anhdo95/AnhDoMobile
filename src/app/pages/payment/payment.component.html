@@ -81,11 +81,11 @@
                   <span class="text-danger">*</span>
                 </label>
                 <div class="col-lg-9 col-sm-8">
-                  <select formControlName="city" class="custom-select rounded-0">
-                    <option value="" selected>Chọn Tỉnh / Thành phố</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                  <select formControlName="city" class="custom-select rounded-0" (change)="loadDistricts()">
+                    <option value="">Chọn Tỉnh / Thành phố</option>
+                    <option *ngFor="let province of provinces" [value]="province.Id">
+                      {{ province.Name }}
+                    </option>
                   </select>
                   <div *ngIf="paymentForm.get('city').touched && paymentForm.controls['city'].errors?.required" class="text-danger">
                       {{ messages?.CITY_IS_REQUIRED }}
@@ -99,10 +99,10 @@
                 </label>
                 <div class="col-lg-9 col-sm-8">
                   <select formControlName="district" class="custom-select rounded-0" [attr.disabled]="paymentForm.controls['city'].errors?.required">
-                    <option value="" selected>Chọn Quận / Huyện</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="">Chọn Quận / Huyện</option>
+                    <option *ngFor="let district of districts" [value]="district.Id">
+                        {{ district.Name }}
+                      </option>
                   </select>
                   <div *ngIf="paymentForm.get('district').touched && paymentForm.controls['district'].errors?.required" class="text-danger">
                       {{ messages?.DISTRICT_IS_REQUIRED }}

@@ -6,6 +6,10 @@
     "comment": {
       "forProduct": "CommentsForProduct"
     },
+    "payment": {
+      "provinces": "GetProvinces",
+      "districts": "GetDistricts"
+    },
     "cart": {
       "cartIdToken": "AD_CARTID_TOKEN",
       "getCartId": "GetCartId",
