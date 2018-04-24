@@ -57,15 +57,15 @@ export class Specification {
 
 export class Related {
   constructor(
-    Id: number,
-    CameraAfter: string,
-    CameraBefore: string,
-    PinCapacity: string,
-    Screen: string,
-    Name: string,
-    MetaTitle: string,
-    Image: string,
-    Price: number,
-    PromotionPrice?: string,
+    public Id: number,
+    public CameraAfter: string,
+    public CameraBefore: string,
+    public PinCapacity: string,
+    public Screen: string,
+    public Name: string,
+    public MetaTitle: string,
+    public Image: string,
+    public Price: number,
+    public PromotionPrice?: string,
   ) { }
 }
