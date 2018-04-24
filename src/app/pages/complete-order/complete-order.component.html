@@ -5,69 +5,57 @@
         <img class="w-100 h-100" src="../../../assets/images/about.jpg">
       </div>
       <div class="info py-2">
-        <p class="px-1">Cảm ơn anh
-          <b>AnhDo</b> đã cho chúng tôi cơ hội được phụ vụ Trong vòng 5 phút, nhân viên của
+        <p class="px-1">Cảm ơn {{ orderComplete.ShipGender ? 'anh' : 'chị' }}&nbsp;
+          <b>{{ orderComplete.ShipName }}</b> đã cho chúng tôi cơ hội được phụ vụ Trong vòng 5 phút, nhân viên của
           <b>Anh Do Mobile</b>
-          sẽ gọi điện xác nhận đơn đặt hàng của anh.</p>
+          sẽ gọi điện xác nhận đơn đặt hàng của {{ orderComplete.ShipGender ? 'anh' : 'chị' }}.</p>
         <div>
           <h2 class="title text-danger alert alert-info rounded-0">Thông tin đơn hàng</h2>
           <ul class="summary">
             <li>
-              Đơn hàng của anh
-              <b>Anh Do</b>
+              Đơn hàng của {{ orderComplete.ShipGender ? 'anh' : 'chị' }}
+              <b>{{ orderComplete.ShipName }}</b>
             </li>
             <li>Số điện thoại:
-              <b>09229339421</b>
+              <b>{{ orderComplete.ShipPhone }}</b>
             </li>
             <li>
               Phương thức nhận hàng:
               <b>Giao hàng tận nơi, miễn phí</b>
             </li>
             <li>Nơi nhận hàng:
-              <b>số 10 Nguyễn Trãi, Thanh Xuân, Hà Nội.</b>
+              <b>{{ orderComplete.ShipAddress }}</b>
             </li>
             <li>Hình thức thanh toán:
               <b>Trả tiền mặt, khi nhận hàng.</b>
             </li>
-            <li>Áp dụng mã giảm giá:
+            <!-- <li>Áp dụng mã giảm giá:
               <b class="text-danger">D10P giảm 10% tổng giá trị</b>
-            </li>
+            </li> -->
             <li>Tổng tiền cần thanh toán:
-              <b class="text-danger">25.000.000đ</b>
+              <b class="text-danger">{{ orderComplete.OrderTotal | number }}đ</b>
             </li>
           </ul>
         </div>
         <div class="pro-list">
           <h2 class="title text-danger alert alert-info rounded-0">Sản phẩm đã lựa chọn</h2>
-          <div class="item row pb-2">
+          <div class="item row pb-2" *ngFor="let order of orderComplete.OrderItems">
             <div class="pic col-md-3 col-4 text-center">
               <img class="w-75 h-100 img-thumbnail" src="../../../assets/images/180x180/iphone-7-plus-128gb-red.jpg" alt="">
             </div>
             <div class="col-md-9 col-8">
               <h3 class="name mt-1">iPhone 7 plus 128gb red</h3>
               <div>
-                <strong class="price">11.200.999đ</strong>
+                <strong class="price">{{ order.Price | number }}đ</strong>
               </div>
-              <div>Số lượng: 1</div>
-            </div>
-          </div>
-          <div class="item row pb-2">
-            <div class="pic col-md-3 col-4 text-center">
-              <img class="w-75 h-100 img-thumbnail" src="../../../assets/images/180x180/iphone-7-plus-128gb-red.jpg" alt="">
-            </div>
-            <div class="col-md-9 col-8">
-              <h3 class="name mt-1">iPhone 7 plus 128gb red</h3>
-              <div>
-                <strong class="price">11.200.999đ</strong>
-              </div>
-              <div>Số lượng: 1</div>
+              <div>Số lượng: {{ order.Quantity }}</div>
             </div>
           </div>
         </div>
       </div>
       <hr>
       <div class="text-center">
-        <a class="btn btn-outline-warning">
+        <a class="btn btn-outline-warning" (click)="navigateHome()">
           <i class="fa fa-caret-left"></i> Quay lại trang chủ
         </a>
       </div>

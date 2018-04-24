@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { OrderComplete } from '../models/payment';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class DataService {
@@ -10,6 +12,9 @@ export class DataService {
   private currentUser = new Subject<any>();
   currentUserLogged$ = this.currentUser.asObservable();
 
+  private completeOrder = new BehaviorSubject(new OrderComplete());
+  currentCompleteOrder$ = this.completeOrder.asObservable();
+
   constructor() { }
 
   enableBanner(enabled: boolean) {
@@ -18,5 +23,9 @@ export class DataService {
 
   setCurrentUserLogin(userName: string) {
     this.currentUser.next(userName);
+  }
+
+  setCurrentCompleteOrder(orderComplete: OrderComplete) {
+    this.completeOrder.next(orderComplete);
   }
 }
