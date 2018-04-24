@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FbService } from './../../services/fb.service';
 import { DataService } from './../../services/data.service';
 import { ConfigService } from '../../services/config.service';
@@ -21,13 +22,15 @@ export class HeaderComponent implements OnInit {
   menus: Menu[];
   products$: Observable<Product[]>;
   productList: Product[] = [];
+  searchText: string;
   private searchText$ = new Subject<string>();
 
   constructor(
     private dataService: DataService,
     private fbService: FbService,
     private headerService: HeaderService,
-    private configService: ConfigService
+    private configService: ConfigService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -76,7 +79,6 @@ export class HeaderComponent implements OnInit {
   pipeSearchProducts() {
     this.products$ = this.searchText$.pipe(
       debounceTime(this.configService.get('debounceTime')), // wait 500ms after each keystroke before considering the term
-      distinctUntilChanged(), // ignore new term if same as previous term
        // switch to new search observable each time the term changes
       switchMap(term => this.headerService.searchProducts(term)));
     this.products$.subscribe(products => {
@@ -84,11 +86,22 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  searchProducts(term: string): void {
-    if (!term) {
+  searchProducts(): void {
+    if (!this.searchText) {
       this.productList = [];
       return;
     }
-    this.searchText$.next(term);
+    this.searchText$.next(this.searchText);
+  }
+
+  navigate(url: string, param?: any) {
+    if (param) {
+      this.router.navigate([url, param]);
+    } else {
+      this.router.navigateByUrl(url);
+    }
+    this.showNav = false;
+    this.searchText = null;
+    this.searchProducts();
   }
 }
