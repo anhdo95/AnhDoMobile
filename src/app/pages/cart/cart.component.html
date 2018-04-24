@@ -11,7 +11,7 @@
       <div class="row">
         <div class="products-order col-sm-7 col-12 clearfix mb-3">
           <!-- item -->
-          <div class="item clearfix" *ngFor="let item of cart.CartItems">
+          <div class="item clearfix" *ngFor="let item of cart.CartItems; let i = index">
             <div class="picture text-center">
               <a href="/dien-thoai/{{ item.ProductMetaTitle }}" class="d-block">
                 <img class="w-100 img-thumbnail" src="../../../assets/images/180x180/{{ item.ProductImage }}" alt="">
@@ -29,12 +29,13 @@
               </div>
             </div>
             <div class="quantity text-right">
-              <div class="btn-group" role="group">
-                <button type="button" class="btn btn-light btn-sm">
+              <div *ngIf="loading">Loading...</div>
+              <div class="btn-group" role="group" *ngIf="!loading">
+                <button type="button" class="btn btn-light btn-sm" (click)="changeQuantity(i, -1)">
                   <i class="fa fa-minus" aria-hidden="true"></i>
                 </button>
                 <button type="button" class="btn btn-light btn-sm">{{ item.Quantity }}</button>
-                <button type="button" class="btn btn-light btn-sm">
+                <button type="button" class="btn btn-light btn-sm" (click)="changeQuantity(i, 1)">
                   <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
               </div>

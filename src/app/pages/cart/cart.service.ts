@@ -38,4 +38,21 @@ export class CartService {
     );
   }
 
+  updateCartQuantity(recordId: number, newQuantity: number, callback: (status) => void): void {
+    this.loadingService.start();
+    const api = this.configService.get('APIs').cart.changeQuantityFromCart;
+    const params = { recordId, newQuantity };
+    this.apiService.post(api, params).subscribe(
+      res => {
+        if (res.Status === this.apiStatus.success) {
+            callback(true);
+        } else if (res.Status === this.apiStatus.error) {
+          this.toastr.error(res.StatusMessage, 'Error Message!');
+        }
+        this.loadingService.stop();
+      }, error => {
+        this.toastr.error(error.message || error, 'Error Message!');
+      }
+    );
+  }
 }

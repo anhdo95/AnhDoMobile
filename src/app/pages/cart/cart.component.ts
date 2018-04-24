@@ -11,6 +11,7 @@ import { Cart } from './../../models/cart';
 })
 export class CartComponent implements OnInit {
   cart: Cart;
+  loading: boolean;
   constructor(
     private cartService: CartService
   ) { }
@@ -22,6 +23,17 @@ export class CartComponent implements OnInit {
   getCart() {
     this.cartService.getCart(cart => {
       this.cart = cart;
+    });
+  }
+
+  changeQuantity(index: number, number: number) {
+    this.loading = true;
+    const record = this.cart.CartItems[index];
+    record.Quantity += number;
+    this.cartService.updateCartQuantity(record.RecordId, record.Quantity, res => {
+      if (res) {
+        this.loading = false;
+      }
     });
   }
 }
