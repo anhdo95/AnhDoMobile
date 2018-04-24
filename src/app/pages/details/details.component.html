@@ -2,10 +2,10 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb bg-white rounded-0">
       <li class="breadcrumb-item">
-        <a href="/">Trang chủ</a>
+        <a (click)="navigate('/')">Trang chủ</a>
       </li>
       <li class="breadcrumb-item">
-        <a href="/dien-thoai">Điện thoại</a>
+        <a (click)="navigate('/dien-thoai')">Điện thoại</a>
       </li>
       <li class="breadcrumb-item active" aria-current="page">{{ details.CategoryName }}</li>
     </ol>
@@ -17,7 +17,7 @@
     <div class="pictures p-2 text-center">
       <img class="photo" src="../../../assets/images/380x380/{{ details.Image }}" [alt]="details.Name">
       <div class="subs clearfix text-center">
-        <a href="javascript:void()" *ngFor="let image of details.MoreImages">
+        <a *ngFor="let image of details.MoreImages">
           <img class="w-100  img-thumbnail" src="../../../assets/images/380x380/{{ replaceImages(image) }}" alt="">
         </a>
       </div>
@@ -52,7 +52,7 @@
       </div>
       <div class="btn-action row no-gutters">
         <div class="col-sm-6 buy-now p-1">
-          <a class="btn btn-block text-white" href="javascript:void()" (click)="addToCart(details.Id)">
+          <a class="btn btn-block text-white" (click)="addToCart(details.Id)">
             <strong>Mua ngay</strong>
             <br>
             <small>Giao hàng tận nơi</small>
@@ -155,7 +155,7 @@
     <div class="related-product p-2">
       <h2 class="title">Sản phẩm tương tự</h2>
       <ul class="rel-list list-unstyled">
-        <a href="/dien-thoai/{{ product.MetaTitle }}" class="media item" *ngFor="let product of productsRelated">
+        <a (click)="navigate('/dien-thoai', product.MetaTitle)" class="media item" *ngFor="let product of productsRelated">
           <div class="picture">
             <img class="w-100" src="../../../assets/images/180x180/{{ product.Image }}" alt="">
           </div>

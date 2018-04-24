@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { FbService } from './../../services/fb.service';
 import { DataService } from './../../services/data.service';
 import { ConfigService } from '../../services/config.service';
 import { HeaderService } from './header.service';
+import { HelperService } from './../../services/helper.service';
 import { Menu, TargetLink } from '../../models/menu';
 import { Product } from '../../models/product';
 import { Observable } from 'rxjs/Observable';
@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
     private fbService: FbService,
     private headerService: HeaderService,
     private configService: ConfigService,
-    private router: Router
+    private helperService: HelperService
   ) { }
 
   ngOnInit() {
@@ -95,11 +95,7 @@ export class HeaderComponent implements OnInit {
   }
 
   navigate(url: string, param?: any) {
-    if (param) {
-      this.router.navigate([url, param]);
-    } else {
-      this.router.navigateByUrl(url);
-    }
+    this.helperService.navigate(url, param);
     this.showNav = false;
     this.searchText = null;
     this.searchProducts();

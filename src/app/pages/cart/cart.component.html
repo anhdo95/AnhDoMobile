@@ -2,7 +2,7 @@
   <div class="row">
     <div class="summary col-lg-9 col-12 m-auto bg-white py-2">
       <div class="clearfix">
-        <a href="javascript:void" (click)="navigate('/')">
+        <a  (click)="navigate('/')">
           <i class="fa fa-caret-left" aria-hidden="true"></i> Mua thêm sản phẩm khác</a>
         <a class="float-right">
           <i class="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ hàng của bạn</a>
@@ -13,7 +13,7 @@
           <!-- item -->
           <div class="item clearfix" *ngFor="let item of cart.CartItems; let i = index">
             <div class="picture text-center">
-              <a href="/dien-thoai/{{ item.ProductMetaTitle }}" class="d-block">
+              <a (click)="navigate('/dien-thoai', item.ProductMetaTitle)" class="d-block">
                 <img class="w-100 img-thumbnail" src="../../../assets/images/180x180/{{ item.ProductImage }}" alt="">
               </a>
             </div>

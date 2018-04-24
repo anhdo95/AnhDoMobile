@@ -3,6 +3,7 @@ import { ProductService } from './product.service';
 import { Product, Category } from '../../models/product';
 import { SortByPriceEnum, FilterByPriceEnum } from '../../enums/product';
 import { Subscription } from 'rxjs/Subscription';
+import { HelperService } from '../../services/helper.service';
 
 @Component({
   selector: 'app-product',
@@ -23,7 +24,8 @@ export class ProductComponent implements OnInit {
   };
 
   constructor(
-    private productService: ProductService) {
+    private productService: ProductService,
+    private helperService: HelperService) {
   }
 
   ngOnInit() {
@@ -49,5 +51,9 @@ export class ProductComponent implements OnInit {
 
   filterCategory(category: string) {
     this.filterQuery.category = category;
+  }
+
+  navigate(url: string, param?: any) {
+    this.helperService.navigate(url, param);
   }
 }

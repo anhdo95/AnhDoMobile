@@ -3,6 +3,7 @@ import { AppComponent } from './../../app.component';
 import { DataService } from '../../services/data.service';
 import { Product } from '../../models/product';
 import { HomeService } from './home.service';
+import { HelperService } from '../../services/helper.service';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(
     private dataService: DataService,
-    private homeService: HomeService
+    private homeService: HomeService,
+    private helperService: HelperService
   ) {
     this.dataService.enableBanner(true);
   }
@@ -44,5 +46,9 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.productsBestSelling = products;
       }
     });
+  }
+
+  navigate(url: string, param?: any) {
+    this.helperService.navigate(url, param);
   }
 }

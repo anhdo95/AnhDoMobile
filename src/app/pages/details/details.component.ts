@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DetailsService } from './details.service';
+import { HelperService } from './../../services/helper.service';
 import { ProductDetail, Related } from '../../models/product';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -17,7 +18,8 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private detailsService: DetailsService
+    private detailsService: DetailsService,
+    private helperService: HelperService
   ) { }
 
   ngOnInit() {
@@ -49,5 +51,9 @@ export class DetailsComponent implements OnInit {
 
   replaceImages(image: string) {
     return image.replace('Assets/Common/images/products/380x380/', '');
+  }
+
+  navigate(url: string, param?: any) {
+    this.helperService.navigate(url, param);
   }
 }

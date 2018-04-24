@@ -3,7 +3,7 @@
     <h1 class="title">ĐIỆN THOẠI NỔI BẬT NHẤT</h1>
     <ul class="products">
       <li class="item {{i == 0 ? 'outstanding': ''}}" *ngFor="let product of productsBestOutstanding; let i = index">
-        <a href="/dien-thoai/{{ product.MetaTitle }}">
+        <a (click)="navigate('/dien-thoai', product.MetaTitle)">
           <div class="photo">
             <img src="../../../assets/images/180x180/{{ i == 0 ? product.LargeImage : product.Image }}" [alt]="product.Name">
           </div>
@@ -24,7 +24,7 @@
     <h1 class="title">ĐIỆN THOẠI BÁN CHẠY NHẤT</h1>
     <ul class="products">
       <li class="item {{i == 0 ? 'outstanding': ''}}" *ngFor="let product of productsBestSelling; let i = index">
-          <a href="/dien-thoai/{{ product.MetaTitle }}">
+          <a (click)="navigate('/dien-thoai', product.MetaTitle)">
             <div class="photo">
               <img src="../../../assets/images/180x180/{{ i == 0 ? product.LargeImage : product.Image }}" [alt]="product.Name">
             </div>

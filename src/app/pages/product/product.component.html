@@ -54,7 +54,7 @@
         filterProductCategory: filterQuery.category |
         filterProductPrice: filterQuery.price |
         sortPrice: filterQuery.sort)">
-        <a href="/dien-thoai/{{ product.MetaTitle }}">
+        <a (click)="navigate('/dien-thoai', product.MetaTitle)">
           <div class="photo">
             <img src="../../../assets/images/180x180/{{ product.Image }}" [alt]="product.Name">
           </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { CartService } from './cart.service';
+import { HelperService } from './../../services/helper.service';
 import { Cart } from './../../models/cart';
 
 
@@ -15,7 +15,7 @@ export class CartComponent implements OnInit {
   loading: boolean;
   constructor(
     private cartService: CartService,
-    private router: Router
+    private helperService: HelperService
   ) { }
 
   ngOnInit() {
@@ -51,7 +51,7 @@ export class CartComponent implements OnInit {
     });
   }
 
-  navigate(route: string) {
-    this.router.navigateByUrl(route);
+  navigate(url: string, param?: any) {
+    this.helperService.navigate(url, param);
   }
 }
