@@ -22,8 +22,8 @@
               <div>
                 <strong class="price">{{ item.Price | number }}đ</strong>
               </div>
-              <div class="mt-2">
-                <span class="btn-remove badge badge-danger">
+              <div class="mt-2" *ngIf="!loading">
+                <span class="btn-remove badge badge-danger" (click)="removeItem(i)">
                   <i class="fa fa-times-circle" aria-hidden="true"></i> Xóa
                 </span>
               </div>

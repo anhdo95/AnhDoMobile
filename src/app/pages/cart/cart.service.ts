@@ -55,4 +55,21 @@ export class CartService {
       }
     );
   }
+
+  removeItemFromCart(recordId: number, callback: (status) => void): void {
+    this.loadingService.start();
+    const api = `${this.configService.get('APIs').cart.removeFromCart}`;
+    this.apiService.post(api, {recordId}).subscribe(
+      res => {
+        if (res.Status === this.apiStatus.success) {
+            callback(true);
+        } else if (res.Status === this.apiStatus.error) {
+          this.toastr.error(res.StatusMessage, 'Error Message!');
+        }
+        this.loadingService.stop();
+      }, error => {
+        this.toastr.error(error.message || error, 'Error Message!');
+      }
+    );
+  }
 }

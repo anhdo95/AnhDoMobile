@@ -32,6 +32,18 @@ export class CartComponent implements OnInit {
     record.Quantity += number;
     this.cartService.updateCartQuantity(record.RecordId, record.Quantity, res => {
       if (res) {
+        this.getCart();
+        this.loading = false;
+      }
+    });
+  }
+
+  removeItem(index: number) {
+    this.loading = true;
+    const recordId = this.cart.CartItems[index].RecordId;
+    this.cartService.removeItemFromCart(recordId, res => {
+      if (res) {
+        this.getCart();
         this.loading = false;
       }
     });
