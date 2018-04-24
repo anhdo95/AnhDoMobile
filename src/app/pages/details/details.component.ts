@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DetailsService } from './details.service';
 import { ProductDetail, Related } from '../../models/product';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-details',
@@ -10,6 +11,7 @@ import { ProductDetail, Related } from '../../models/product';
   providers: [DetailsService]
 })
 export class DetailsComponent implements OnInit {
+  subscription: Subscription;
   details: ProductDetail;
   productsRelated: Related[];
 
@@ -19,8 +21,9 @@ export class DetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const metaTitle = this.route.snapshot.paramMap.get('MetaTitle');
-    this.getDetails(metaTitle);
+    this.subscription = this.route.params.subscribe(params => {
+      this.getDetails(params['MetaTitle']);
+    });
   }
 
   getDetails(metaTitle: string) {
