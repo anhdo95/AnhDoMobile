@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from './cart.service';
 import { Cart } from './../../models/cart';
 
@@ -13,7 +14,8 @@ export class CartComponent implements OnInit {
   cart: Cart;
   loading: boolean;
   constructor(
-    private cartService: CartService
+    private cartService: CartService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -47,5 +49,9 @@ export class CartComponent implements OnInit {
         this.loading = false;
       }
     });
+  }
+
+  navigate(route: string) {
+    this.router.navigateByUrl(route);
   }
 }
