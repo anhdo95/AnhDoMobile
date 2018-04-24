@@ -8,7 +8,8 @@
     },
     "payment": {
       "provinces": "GetProvinces",
-      "districts": "GetDistricts"
+      "districts": "GetDistricts",
+      "processing": "OrderProcessing"
     },
     "cart": {
       "cartIdToken": "AD_CARTID_TOKEN",

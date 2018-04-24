@@ -4,7 +4,7 @@ import { ConfigService } from '../../services/config.service';
 import { HelperService } from './../../services/helper.service';
 import { PaymentService } from './payment.service';
 import * as $ from 'jquery';
-import { Province, District } from '../../models/payment';
+import { Province, District, Customer } from '../../models/payment';
 
 @Component({
   selector: 'app-payment',
@@ -57,6 +57,16 @@ export class PaymentComponent implements OnInit {
       this.helperService.scrollTop($('.ng-invalid:first-child').position().top);
       return;
     }
+    const controls = this.paymentForm.controls;
+    let customer = new Customer();
+    customer.Gender = +controls.gender.value === 1 ? true : false;
+    customer.FullName = controls.fullName.value;
+    customer.PhoneNumber = controls.phone.value;
+    let city = this.findProvinceName(+controls.city.value);
+    let district = this.findDistrictName(+controls.district.value);
+    customer.Address =  `${controls.address.value}, ${district}, ${city}`;
+
+    this.paymentService.saveOrder(customer);
   }
 
   loadProvinces() {
@@ -69,10 +79,22 @@ export class PaymentComponent implements OnInit {
 
   loadDistricts() {
     let provinceId = this.paymentForm.get('city').value;
+    if (!provinceId) {
+      this.districts = new Array<District>();
+      return;
+    }
     this.paymentService.getDistricts(provinceId, districts => {
       if (districts) {
         this.districts = districts;
       }
     });
+  }
+
+  findProvinceName(id: number) {
+    return this.provinces.find(province => province.Id === id).Name;
+  }
+
+  findDistrictName(id: number) {
+    return this.districts.find(district => district.Id === id).Name;
   }
 }
