@@ -25,13 +25,20 @@ export class CartComponent implements OnInit {
   getCart() {
     this.cartService.getCart(cart => {
       this.cart = cart;
+      if (!cart.CartItems.length) {
+        this.navigate('/');
+      }
     });
   }
 
   changeQuantity(index: number, number: number) {
-    this.loading = true;
     const record = this.cart.CartItems[index];
-    record.Quantity += number;
+    const newQuantity = record.Quantity + number;
+    if (newQuantity < 1) {
+      return;
+    }
+    this.loading = true;
+    record.Quantity = newQuantity;
     this.cartService.updateCartQuantity(record.RecordId, record.Quantity, res => {
       if (res) {
         this.getCart();

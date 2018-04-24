@@ -19,7 +19,7 @@ export class CartService {
     this.apiStatus = this.configService.get('status');
   }
 
-  getCart(callback: (cart) => void): void {
+  getCart(callback: (cart: Cart) => void): void {
     this.loadingService.start();
     const cart = this.configService.get('APIs').cart;
     const api = `${cart.list}?cartId=${localStorage.getItem(cart.cartIdToken)}`;
