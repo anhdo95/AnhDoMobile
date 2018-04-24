@@ -1,5 +1,5 @@
 {
-  "apiBase": "http://localhost/AnhDoMobile-APIs/",
+  "apiBase": "http://anhdomobile.somee.com/",
 
   "APIs": {
     "menu": "Menu",
